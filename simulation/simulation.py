@@ -182,7 +182,7 @@ class Patient:
         self.initialising_patient = initialising_patient
         self.env = env
 
-    def gen_delay_log(self, source, destination, delays):
+    def gen_delay_log(self, source, destination, total_delay, delays):
         """
         Create and log delays
         """
@@ -190,7 +190,7 @@ class Patient:
 
         entry = {'patient_id': self.patient_id, 'patient_group': self.patient_group,
                  'init_patient': self.initialising_patient, 'source': source, 'destination': destination,
-                 'delays': delays, 'time_stamp': self.env.hospital_now()}
+                 'total_delay': total_delay, 'delay_breakdown': delays, 'time_stamp': self.env.hospital_now()}
         entry = pd.DataFrame([entry], columns=entry.keys())
         global_delay_log = pd.concat([global_delay_log, entry], axis=0).reset_index(drop=True)
 
@@ -212,7 +212,7 @@ class Patient:
 
         occ_log = {'patient_id': self.patient_id,
                    'patient_group': self.patient_group,
-                   'initialising_patient': self.initialising_patient,
+                   'init_patient': self.initialising_patient,
                    'state': state,
                    'start_time': self.env.hospital_now(),
                    'end_time': False}
@@ -272,7 +272,7 @@ class Patient:
 
                 time_diff = datetime.datetime.combine(datetime.date.today(), l_opening_time) - \
                             datetime.datetime.combine(datetime.date.today(), self.env.hospital_now().time())
-                time_mins, _ = divmod(time_diff.seconds, 60)
+                time_mins, _ = divmod(time_diff.seconds, 60) # need to check if no. days need to be included
 
         else:
 
@@ -283,7 +283,7 @@ class Patient:
                 # calculate the time difference between now and the new ward opening time
                 time_diff = datetime.datetime.combine(datetime.date.today(), new_ward.opening_time) - \
                             datetime.datetime.combine(datetime.date.today(), self.env.hospital_now().time())
-                time_mins, _ = divmod(time_diff.seconds, 60)
+                time_mins, _ = divmod(time_diff.seconds, 60) # need to check if no. days need to be included
 
         return time_mins
 
@@ -379,22 +379,23 @@ class Patient:
 
             # colour-code red when there is a delay for the patient to get a bed
             delay = self.env.hospital_now() - go_time
-            delay, _ = divmod(delay.seconds, 60)
+            delay_mins, _ = divmod(delay.seconds, 60)
+            delay_mins += delay.days*24*60
 
             global T
-            T = T + delay
+            T = T + delay_mins
 
             # log delay
             dst = ward.ward_id
-            self.gen_delay_log(src, dst, {'total_delay': delay,
-                                          'admission_discharge_delay': adm_d_delay})
+            self.gen_delay_log(src, dst, delay_mins, {'total_delay': delay_mins,
+                                                      'admission_discharge_delay': adm_d_delay})
 
-            col = Cols.red if delay != 0 else Cols.green
+            col = Cols.red if delay_mins != 0 else Cols.green
 
             print(col
                   + '[sim_time = %s]: ' % self.env.hospital_now().strftime("%m/%d/%Y, %H:%M:%S")
                   + 'EVENT - Patient %s transferred from %s to %s, action was delayed by %d mins'
-                  % (self.patient_id, pos, ward.ward_name, delay)
+                  % (self.patient_id, pos, ward.ward_name, delay_mins)
                   + Cols.end)
 
             # add event to event log
@@ -540,7 +541,7 @@ def model_run(patient_group_df,
     global global_resource_log
     global_resource_log = pd.DataFrame(columns=['ward_id', 'ward_name', 'timestamp', 'occupancy', 'occupancy_rate', 'queue'])
     global global_delay_log
-    global_delay_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'source', 'destination', 'delays', 'timestamp'])
+    global_delay_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'source', 'destination', 'total_delay', 'delay_breakdown', 'timestamp'])
     global T
     T = 0
 
@@ -550,6 +551,7 @@ def model_run(patient_group_df,
     # Calculate the time diff
     time_diff = sim_config['sim_end_timestamp'] - sim_config['sim_initial_timestamp']
     time_mins, _ = divmod(time_diff.seconds, 60)
+    time_mins += time_diff.days*24*60
 
     # Run the hospital initialisation or warm up
     proc_list = []
@@ -562,6 +564,7 @@ def model_run(patient_group_df,
             # calculate arrival delay
             arrival_diff = row['timestamp'] - sim_config['sim_initial_timestamp']
             arrival_mins, _ = divmod(arrival_diff.seconds, 60)
+            arrival_mins += arrival_diff.days*24*60
 
             # Generate a process for each patient
             proc_list.append(temp_env.process(Patient(temp_env,
@@ -578,6 +581,7 @@ def model_run(patient_group_df,
         # calculate arrival delay
         arrival_diff = row['timestamp'] - sim_config['sim_initial_timestamp']
         arrival_mins, _ = divmod(arrival_diff.seconds, 60)
+        arrival_mins += arrival_diff.days*24*60
 
         # Generate a process for each patient
         proc_list.append(temp_env.process(Patient(temp_env,
