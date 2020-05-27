@@ -1,0 +1,10 @@
+,ward_id,ward_name,opening_times,closing_times,ward_type,capacity_limit,bed_capacity
+0,001,A_and_E,07:00:00,17:00:00,short_stay,True,50
+1,002,Elective,07:00:00,17:00:00,admissions_lounge,True,25
+2,003,Ward_1,07:00:00,17:00:00,long_stay,True,45
+3,004,Ward_2,09:00:00,17:00:00,long_stay,True,60
+4,005,Ward_3,09:00:00,17:00:00,long_stay,True,80
+5,006,Ward_4,13:00:00,16:00:00,long_stay,True,70
+6,007,Ward_5,09:00:00,17:00:00,long_stay,True,35
+7,008,Ward_6,08:00:00,16:00:00,long_stay,True,20
+8,009,Sink_Ward,08:00:00,21:00:00,sink,True,9223372036854775807

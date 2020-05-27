@@ -49,16 +49,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from simpy import Environment, Resource
 from timebetween import is_time_between
-import json
 
 # global variable for event log
 global_event_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'source', 'destination', 'time_stamp', 'event_type'])
 # global variable for occupancy log
-global_occupancy_log = []
+global_occupancy_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'state', 'start_time', 'end_time'])
 # global resource log
-global_resource_log = []
+global_resource_log = pd.DataFrame(columns=['ward_id', 'ward_name', 'timestamp', 'occupancy', 'occupancy_rate', 'queue'])
 # global delay log
-global_delay_log = []
+global_delay_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'source', 'destination', 'delays', 'timestamp'])
 # total waiting time
 T = 0
 
@@ -73,12 +72,10 @@ class Cols:
     red = '\033[31m'
     # REQUESTS
     magenta = "\033[95m"
-    # DEMAND
-    okgreen = '\033[92m'
     # Additional colours
     cyan = "\033[96m"
     yellow = '\033[33m'
-    # Checks
+    # DEMAND
     gray = "\033[90m"
     # back to standard cli format
     end = '\033[0m'
@@ -102,17 +99,20 @@ class Ward:
     def monitor(self, resource):
         """This is our monitoring callback."""
 
-        resource_log = {'ward_id': self.ward_id,
-                        'ward_name': self.ward_name,
-                        'simulation_time': resource._env.hospital_now(),
-                        'occupancy': resource.count,
-                        'queue': len(resource.queue)}
+        entry = {'ward_id': self.ward_id,
+                 'ward_name': self.ward_name,
+                 'timestamp': resource._env.hospital_now(),
+                 'occupancy': resource.count,
+                 'occupancy_rate': round(resource.count/self.beds.capacity,2),
+                 'queue': len(resource.queue)}
+
+        entry = pd.DataFrame([entry], columns=entry.keys())
 
         global global_resource_log
 
-        global_resource_log.append(resource_log)
+        global_resource_log = pd.concat([global_resource_log, entry], axis=0).reset_index(drop=True)
 
-        print(Cols.okgreen
+        print(Cols.gray
               + '[sim_time = %s]: '
               % resource._env.hospital_now().strftime("%m/%d/%Y, %H:%M:%S")
               + 'DEMAND - Ward %s has %d patients and %d in queue'
@@ -188,23 +188,27 @@ class Patient:
         """
         global global_delay_log
 
-        delay_log = {'patient_id': self.patient_id,
-                     'patient_group': self.patient_group,
-                     'initialising_patient': self.initialising_patient,
-                     'source': source,
-                     'destination': destination,
-                     'delays': delays,
-                     'timestamp': self.env.hospital_now()}
+        entry = {'patient_id': self.patient_id, 'patient_group': self.patient_group,
+                 'init_patient': self.initialising_patient, 'source': source, 'destination': destination,
+                 'delays': delays, 'time_stamp': self.env.hospital_now()}
+        entry = pd.DataFrame([entry], columns=entry.keys())
+        global_delay_log = pd.concat([global_delay_log, entry], axis=0).reset_index(drop=True)
 
-        global_delay_log.append(delay_log)
-
-        return 0
+        return entry
 
     def gen_occupancy_log(self, state):
         """
         Create and log occupancy
         """
+
         global global_occupancy_log
+
+        # find index of last row
+        try:
+            idx = global_occupancy_log.tail(1).index.item()
+
+        except ValueError:
+            idx = -1
 
         occ_log = {'patient_id': self.patient_id,
                    'patient_group': self.patient_group,
@@ -213,9 +217,10 @@ class Patient:
                    'start_time': self.env.hospital_now(),
                    'end_time': False}
 
-        global_occupancy_log.append(occ_log)
+        row = pd.Series(occ_log, name=idx+1)
+        global_occupancy_log = global_occupancy_log.append(row)
 
-        return len(global_occupancy_log) - 1
+        return idx+1
 
     def update_occupancy_log(self, index):
         """
@@ -224,7 +229,7 @@ class Patient:
 
         global global_occupancy_log
 
-        global_occupancy_log[index]['end_time'] = self.env.hospital_now()
+        global_occupancy_log.loc[index, 'end_time'] = self.env.hospital_now()
 
     def gen_event_log(self, source, destination, event_type):
         """
@@ -488,27 +493,15 @@ def gantt_plot(occupancy_log, input_wards, save_file=""):
     return df_occupancy_log
 
 
-def save_logs(save=False):
+def save_logs(**kwargs):
+    """Save dataframe objects"""
 
-    if save:
+    for key, value in kwargs.items():
 
         # save global variables to a file
-        global_event_log.to_csv('logs//event_log.csv', encoding='utf-8')
+        value.to_csv('logs//{a}.txt'.format(a=key), encoding='utf-8')
+        value.to_csv('logs//{a}.csv'.format(a=key), encoding='utf-8')
 
-        output_file_occupancy = open('logs//occupancy_log.json', 'w', encoding='utf-8')
-        for dic in global_occupancy_log:
-            json.dump(dic, output_file_occupancy)
-            output_file_occupancy.write("\n")
-
-        output_file_resource = open('logs//resource_log.json', 'w', encoding='utf-8')
-        for dic in global_resource_log:
-            json.dump(dic, output_file_resource)
-            output_file_resource.write("\n")
-
-        output_file_delay = open('logs//delay_log.json', 'w', encoding='utf-8')
-        for dic in global_delay_log:
-            json.dump(dic, output_file_delay)
-            output_file_delay.write("\n")
 
 
 
@@ -541,11 +534,13 @@ def model_run(patient_group_df,
 
     # reset the event log on every run
     global global_event_log
-    global_event_log = pd.DataFrame(columns=['patient_id', 'source', 'destination', 'time_stamp', 'event_type'])
+    global_event_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'source', 'destination', 'time_stamp', 'event_type'])
     global global_occupancy_log
-    global_occupancy_log = []
+    global_occupancy_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'state', 'start_time', 'end_time'])
     global global_resource_log
-    global_resource_log = []
+    global_resource_log = pd.DataFrame(columns=['ward_id', 'ward_name', 'timestamp', 'occupancy', 'occupancy_rate', 'queue'])
+    global global_delay_log
+    global_delay_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'source', 'destination', 'delays', 'timestamp'])
     global T
     T = 0
 
@@ -571,7 +566,7 @@ def model_run(patient_group_df,
             # Generate a process for each patient
             proc_list.append(temp_env.process(Patient(temp_env,
                                                       row['patient_id'],
-                                                      hospital_init_patient_group_df[hospital_init_patient_group_df['patient_group'] == row['patient_group']],
+                                                      row['patient_group'],
                                                       hospital_init_pathway_df[hospital_init_pathway_df['patient_group'] == row['patient_group']],
                                                       hospital_init_los_df[hospital_init_los_df['patient_group'] == row['patient_group']],
                                                       row['timestamp'],
@@ -587,9 +582,7 @@ def model_run(patient_group_df,
         # Generate a process for each patient
         proc_list.append(temp_env.process(Patient(temp_env,
                                                   row['patient_id'],
-                                                  patient_group_df[
-                                                  patient_group_df['patient_group'] == row[
-                                                          'patient_group']],
+                                                  row['patient_group'],
                                                   pathway_df[
                                                   pathway_df['patient_group'] == row[
                                                           'patient_group']],
@@ -598,11 +591,15 @@ def model_run(patient_group_df,
                                                   row['timestamp'],
                                                   initialising_patient=False).spell(ward_system, arrival_mins)))
 
-
     temp_env.run(until=time_mins)
 
     # save logs
-    save_logs(save)
+    if save:
+        save_logs(resource_log=global_resource_log,
+                  occupancy_log=global_occupancy_log,
+                  event_log=global_event_log,
+                  delay_log=global_delay_log,
+                  ward_log=ward_df)
 
     # if opt:
     #     return T

@@ -1,0 +1,1554 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20201.20.0326.1623                               -->
+<workbook original-version='18.1' source-build='2020.1.2 (20201.20.0326.1623)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <CustomReferenceLineTooltips />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='event_log' inline='true' name='federated.1i1a6fi1sskman1fhe5p403bekjl' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='event_log' name='textscan.1s5kg2g0dwcfol1h8upct1den41s'>
+            <connection class='textscan' directory='C:/Users/hamzajuzer/Documents/PatientFlow/Code/Flow/logs' filename='event_log.txt' password='' server='' />
+          </named-connection>
+          <named-connection caption='ward_log' name='textscan.0g5uv1l0276fzu1f8bgco1r8vlta'>
+            <connection class='textscan' directory='C:/Users/hamzajuzer/Documents/PatientFlow/Code/Flow/logs' filename='ward_log.txt' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[event_log.csv].[destination]' />
+              <expression op='[ward_log.txt].[ward_id]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1s5kg2g0dwcfol1h8upct1den41s' name='event_log.csv' table='[event_log#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='integer' name='patient_id' ordinal='1' />
+              <column datatype='string' name='patient_group' ordinal='2' />
+              <column datatype='boolean' name='init_patient' ordinal='3' />
+              <column datatype='string' name='source' ordinal='4' />
+              <column datatype='string' name='destination' ordinal='5' />
+              <column datatype='datetime' name='time_stamp' ordinal='6' />
+              <column datatype='string' name='event_type' ordinal='7' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0g5uv1l0276fzu1f8bgco1r8vlta' name='ward_log.txt' table='[ward_log#txt]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='string' name='ward_id' ordinal='1' />
+              <column datatype='string' name='ward_name' ordinal='2' />
+              <column datatype='datetime' name='opening_times' ordinal='3' />
+              <column datatype='datetime' name='closing_times' ordinal='4' />
+              <column datatype='string' name='ward_type' ordinal='5' />
+              <column datatype='boolean' name='capacity_limit' ordinal='6' />
+              <column datatype='integer' name='bed_capacity' ordinal='7' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[F1 (ward_log.txt)]' value='[ward_log.txt].[F1]' />
+          <map key='[F1]' value='[event_log.csv].[F1]' />
+          <map key='[bed_capacity]' value='[ward_log.txt].[bed_capacity]' />
+          <map key='[capacity_limit]' value='[ward_log.txt].[capacity_limit]' />
+          <map key='[closing_times]' value='[ward_log.txt].[closing_times]' />
+          <map key='[destination]' value='[event_log.csv].[destination]' />
+          <map key='[event_type]' value='[event_log.csv].[event_type]' />
+          <map key='[init_patient]' value='[event_log.csv].[init_patient]' />
+          <map key='[opening_times]' value='[ward_log.txt].[opening_times]' />
+          <map key='[patient_group]' value='[event_log.csv].[patient_group]' />
+          <map key='[patient_id]' value='[event_log.csv].[patient_id]' />
+          <map key='[source]' value='[event_log.csv].[source]' />
+          <map key='[time_stamp]' value='[event_log.csv].[time_stamp]' />
+          <map key='[ward_id]' value='[ward_log.txt].[ward_id]' />
+          <map key='[ward_name]' value='[ward_log.txt].[ward_name]' />
+          <map key='[ward_type]' value='[ward_log.txt].[ward_type]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[event_log.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;£&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[event_log.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>patient_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[patient_id]</local-name>
+            <parent-name>[event_log.csv]</parent-name>
+            <remote-alias>patient_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>patient_group</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[patient_group]</local-name>
+            <parent-name>[event_log.csv]</parent-name>
+            <remote-alias>patient_group</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>init_patient</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[init_patient]</local-name>
+            <parent-name>[event_log.csv]</parent-name>
+            <remote-alias>init_patient</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>source</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[source]</local-name>
+            <parent-name>[event_log.csv]</parent-name>
+            <remote-alias>source</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>destination</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[destination]</local-name>
+            <parent-name>[event_log.csv]</parent-name>
+            <remote-alias>destination</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>time_stamp</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[time_stamp]</local-name>
+            <parent-name>[event_log.csv]</parent-name>
+            <remote-alias>time_stamp</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>event_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[event_type]</local-name>
+            <parent-name>[event_log.csv]</parent-name>
+            <remote-alias>event_type</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;£&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1 (ward_log.txt)]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ward_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ward_id]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>ward_id</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ward_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ward_name]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>ward_name</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>opening_times</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[opening_times]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>opening_times</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>closing_times</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[closing_times]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>closing_times</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ward_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ward_type]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>ward_type</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>capacity_limit</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[capacity_limit]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>capacity_limit</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bed_capacity</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[bed_capacity]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>bed_capacity</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='c_Opening Times' datatype='datetime' name='[Calculation_7795449535423643648]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATEADD(&#13;&#10;&#13;&#10;&apos;hour&apos;, DATEPART(&apos;hour&apos;, [opening_times]), DATEADD(&#13;&#10;&#13;&#10;&apos;minute&apos;, DATEPART(&apos;minute&apos;, [opening_times]), DATEADD(&#13;&#10;&#13;&#10;&apos;second&apos;, DATEPART(&apos;second&apos;, [opening_times]), DATE([time_stamp]))))' />
+      </column>
+      <column caption='c_Closing Times' datatype='datetime' name='[Calculation_7795449535424303105]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATEADD(&#13;&#10;&#13;&#10;&apos;hour&apos;, DATEPART(&apos;hour&apos;, [closing_times]), DATEADD(&#13;&#10;&#13;&#10;&apos;minute&apos;, DATEPART(&apos;minute&apos;, [closing_times]), DATEADD(&#13;&#10;&#13;&#10;&apos;second&apos;, DATEPART(&apos;second&apos;, [closing_times]), DATE([time_stamp]))))' />
+      </column>
+      <column caption='c_n patients' datatype='integer' name='[Calculation_7795449535427010564]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='c_n patients data densification' datatype='integer' name='[Calculation_7795449535427133445]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='ZN(SUM([Calculation_7795449535427010564]))*(IIF(Index() &gt; 0, 1, 1))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='F1 (ward log.txt)' datatype='integer' hidden='true' name='[F1 (ward_log.txt)]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Bed Capacity' datatype='integer' name='[bed_capacity]' role='measure' type='quantitative' />
+      <column caption='Capacity Limit' datatype='boolean' name='[capacity_limit]' role='dimension' type='nominal' />
+      <column aggregation='Hour' caption='Closing Times' datatype='datetime' name='[closing_times]' role='dimension' type='ordinal' />
+      <column caption='Destination' datatype='string' name='[destination]' role='dimension' type='nominal' />
+      <column caption='Event Type' datatype='string' name='[event_type]' role='dimension' type='nominal' />
+      <column caption='Init Patient' datatype='boolean' name='[init_patient]' role='dimension' type='nominal' />
+      <column aggregation='Hour' caption='Opening Times' datatype='datetime' name='[opening_times]' role='dimension' type='ordinal' />
+      <column caption='Patient Group' datatype='string' name='[patient_group]' role='dimension' type='nominal' />
+      <column caption='Patient Id' datatype='integer' name='[patient_id]' role='dimension' type='ordinal' />
+      <column caption='Source' datatype='string' name='[source]' role='dimension' type='nominal' />
+      <column caption='Time Stamp' datatype='datetime' name='[time_stamp]' role='dimension' type='ordinal' />
+      <column caption='Ward Id' datatype='string' name='[ward_id]' role='dimension' type='nominal' />
+      <column caption='Ward Name' datatype='string' name='[ward_name]' role='dimension' type='nominal' />
+      <column caption='Ward Type' datatype='string' name='[ward_type]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.68661' measure-ordering='alphabetic' measure-percentage='0.31339' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United Kingdom&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='F1' />
+        <field-sort-custom-order field='Calculation_7795449535427010564' />
+        <field-sort-custom-order field='Calculation_7795449535427133445' />
+        <field-sort-custom-order field='patient_id' />
+        <field-sort-custom-order field='patient_group' />
+        <field-sort-custom-order field='init_patient' />
+        <field-sort-custom-order field='source' />
+        <field-sort-custom-order field='destination' />
+        <field-sort-custom-order field='time_stamp' />
+        <field-sort-custom-order field='event_type' />
+        <field-sort-custom-order field='ward_id' />
+        <field-sort-custom-order field='ward_name' />
+        <field-sort-custom-order field='opening_times' />
+        <field-sort-custom-order field='Calculation_7795449535423643648' />
+        <field-sort-custom-order field='closing_times' />
+        <field-sort-custom-order field='Calculation_7795449535424303105' />
+        <field-sort-custom-order field='ward_type' />
+        <field-sort-custom-order field='capacity_limit' />
+        <field-sort-custom-order field='bed_capacity' />
+      </field-sort-info>
+    </datasource>
+    <datasource caption='resource_log.txt+ (Multiple Connections)' inline='true' name='federated.02wv83f06zzqyr1e2jqok014nm8y' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='resource_log' name='textscan.06vhjz40kg3cma16u3t6i110mlxk'>
+            <connection class='textscan' directory='C:/Users/hamzajuzer/Documents/PatientFlow/Code/Flow/logs' filename='resource_log.txt' password='' server='' />
+          </named-connection>
+          <named-connection caption='ward_log' name='textscan.0hgtwm91ptz1ww12pp6x20o6dprl'>
+            <connection class='textscan' directory='C:/Users/hamzajuzer/Documents/PatientFlow/Code/Flow/logs' filename='ward_log.txt' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[resource_log.txt].[ward_id]' />
+              <expression op='[ward_log.txt].[ward_id]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.06vhjz40kg3cma16u3t6i110mlxk' name='resource_log.txt' table='[resource_log#txt]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='string' name='ward_id' ordinal='1' />
+              <column datatype='string' name='ward_name' ordinal='2' />
+              <column datatype='datetime' name='timestamp' ordinal='3' />
+              <column datatype='integer' name='occupancy' ordinal='4' />
+              <column datatype='real' name='occupancy_rate' ordinal='5' />
+              <column datatype='integer' name='queue' ordinal='6' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0hgtwm91ptz1ww12pp6x20o6dprl' name='ward_log.txt' table='[ward_log#txt]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='string' name='ward_id' ordinal='1' />
+              <column datatype='string' name='ward_name' ordinal='2' />
+              <column datatype='datetime' name='opening_times' ordinal='3' />
+              <column datatype='datetime' name='closing_times' ordinal='4' />
+              <column datatype='string' name='ward_type' ordinal='5' />
+              <column datatype='boolean' name='capacity_limit' ordinal='6' />
+              <column datatype='integer' name='bed_capacity' ordinal='7' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[F1 (ward_log.txt)]' value='[ward_log.txt].[F1]' />
+          <map key='[F1]' value='[resource_log.txt].[F1]' />
+          <map key='[bed_capacity]' value='[ward_log.txt].[bed_capacity]' />
+          <map key='[capacity_limit]' value='[ward_log.txt].[capacity_limit]' />
+          <map key='[closing_times]' value='[ward_log.txt].[closing_times]' />
+          <map key='[occupancy]' value='[resource_log.txt].[occupancy]' />
+          <map key='[occupancy_rate]' value='[resource_log.txt].[occupancy_rate]' />
+          <map key='[opening_times]' value='[ward_log.txt].[opening_times]' />
+          <map key='[queue]' value='[resource_log.txt].[queue]' />
+          <map key='[timestamp]' value='[resource_log.txt].[timestamp]' />
+          <map key='[ward_id (ward_log.txt)]' value='[ward_log.txt].[ward_id]' />
+          <map key='[ward_id]' value='[resource_log.txt].[ward_id]' />
+          <map key='[ward_name (ward_log.txt)]' value='[ward_log.txt].[ward_name]' />
+          <map key='[ward_name]' value='[resource_log.txt].[ward_name]' />
+          <map key='[ward_type]' value='[ward_log.txt].[ward_type]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[resource_log.txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;£&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[resource_log.txt]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ward_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ward_id]</local-name>
+            <parent-name>[resource_log.txt]</parent-name>
+            <remote-alias>ward_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ward_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ward_name]</local-name>
+            <parent-name>[resource_log.txt]</parent-name>
+            <remote-alias>ward_name</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>timestamp</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[timestamp]</local-name>
+            <parent-name>[resource_log.txt]</parent-name>
+            <remote-alias>timestamp</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>occupancy</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[occupancy]</local-name>
+            <parent-name>[resource_log.txt]</parent-name>
+            <remote-alias>occupancy</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>occupancy_rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[occupancy_rate]</local-name>
+            <parent-name>[resource_log.txt]</parent-name>
+            <remote-alias>occupancy_rate</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>queue</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[queue]</local-name>
+            <parent-name>[resource_log.txt]</parent-name>
+            <remote-alias>queue</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;£&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1 (ward_log.txt)]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ward_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ward_id (ward_log.txt)]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>ward_id</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ward_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ward_name (ward_log.txt)]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>ward_name</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>opening_times</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[opening_times]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>opening_times</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>closing_times</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[closing_times]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>closing_times</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ward_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ward_type]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>ward_type</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>capacity_limit</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[capacity_limit]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>capacity_limit</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bed_capacity</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[bed_capacity]</local-name>
+            <parent-name>[ward_log.txt]</parent-name>
+            <remote-alias>bed_capacity</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535431720967:qk]&quot;' value='Occupancy Rate (%)' />
+          <alias key='&quot;[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535433240585:qk]&quot;' value='Queue' />
+        </aliases>
+      </column>
+      <column caption='c_Occupancy Rate' datatype='real' name='[Calculation_7795449535431720967]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='ZN(AVG([occupancy_rate]))*(IIF(Index() &gt; 0, 1, 1))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='c_Occupancy' datatype='real' name='[Calculation_7795449535431819272]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='ZN(AVG([occupancy]))*(IIF(Index() &gt; 0, 1, 1))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='c_Queue' datatype='real' name='[Calculation_7795449535433240585]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='ZN(AVG([queue]))*(IIF(Index() &gt; 0, 1, 1))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='F1 (ward log.txt)' datatype='integer' name='[F1 (ward_log.txt)]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Bed Capacity' datatype='integer' name='[bed_capacity]' role='measure' type='quantitative' />
+      <column caption='Capacity Limit' datatype='boolean' name='[capacity_limit]' role='dimension' type='nominal' />
+      <column aggregation='Hour' caption='Closing Times' datatype='datetime' name='[closing_times]' role='dimension' type='ordinal' />
+      <column caption='Occupancy' datatype='integer' name='[occupancy]' role='measure' type='quantitative' />
+      <column caption='Occupancy Rate' datatype='real' name='[occupancy_rate]' role='measure' type='quantitative' />
+      <column aggregation='Hour' caption='Opening Times' datatype='datetime' name='[opening_times]' role='dimension' type='ordinal' />
+      <column caption='Queue' datatype='integer' name='[queue]' role='measure' type='quantitative' />
+      <column caption='Timestamp' datatype='datetime' name='[timestamp]' role='dimension' type='ordinal' />
+      <column caption='Ward Id (Ward Log.Txt)' datatype='string' name='[ward_id (ward_log.txt)]' role='dimension' type='nominal' />
+      <column caption='Ward Id' datatype='string' name='[ward_id]' role='dimension' type='nominal' />
+      <column caption='Ward Name (Ward Log.Txt)' datatype='string' name='[ward_name (ward_log.txt)]' role='dimension' type='nominal' />
+      <column caption='Ward Name' datatype='string' name='[ward_name]' role='dimension' type='nominal' />
+      <column caption='Ward Type' datatype='string' name='[ward_type]' role='dimension' type='nominal' />
+      <column-instance column='[Calculation_7795449535431720967]' derivation='User' name='[usr:Calculation_7795449535431720967:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' />
+      </column-instance>
+      <column-instance column='[Calculation_7795449535433240585]' derivation='User' name='[usr:Calculation_7795449535433240585:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' />
+      </column-instance>
+      <layout dim-ordering='alphabetic' dim-percentage='0.481481' measure-ordering='alphabetic' measure-percentage='0.518519' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535431720967:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535433240585:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United Kingdom&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='F1' />
+        <field-sort-custom-order field='ward_id' />
+        <field-sort-custom-order field='ward_name' />
+        <field-sort-custom-order field='timestamp' />
+        <field-sort-custom-order field='occupancy' />
+        <field-sort-custom-order field='Calculation_7795449535431819272' />
+        <field-sort-custom-order field='occupancy_rate' />
+        <field-sort-custom-order field='Calculation_7795449535431720967' />
+        <field-sort-custom-order field='queue' />
+        <field-sort-custom-order field='Calculation_7795449535433240585' />
+        <field-sort-custom-order field='F1 (ward_log.txt)' />
+        <field-sort-custom-order field='ward_id (ward_log.txt)' />
+        <field-sort-custom-order field='ward_name (ward_log.txt)' />
+        <field-sort-custom-order field='opening_times' />
+        <field-sort-custom-order field='closing_times' />
+        <field-sort-custom-order field='ward_type' />
+        <field-sort-custom-order field='capacity_limit' />
+        <field-sort-custom-order field='bed_capacity' />
+      </field-sort-info>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Ward activity profile'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='resource_log.txt+ (Multiple Connections)' name='federated.02wv83f06zzqyr1e2jqok014nm8y' />
+            <datasource caption='event_log' name='federated.1i1a6fi1sskman1fhe5p403bekjl' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02wv83f06zzqyr1e2jqok014nm8y'>
+            <column caption='c_Occupancy Rate' datatype='real' name='[Calculation_7795449535431720967]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='ZN(AVG([occupancy_rate]))*(IIF(Index() &gt; 0, 1, 1))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='c_Queue' datatype='real' name='[Calculation_7795449535433240585]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='ZN(AVG([queue]))*(IIF(Index() &gt; 0, 1, 1))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column-instance column='[ward_name]' derivation='None' name='[none:ward_name:nk]' pivot='key' type='nominal' />
+            <column caption='Occupancy Rate' datatype='real' name='[occupancy_rate]' role='measure' type='quantitative' />
+            <column caption='Queue' datatype='integer' name='[queue]' role='measure' type='quantitative' />
+            <column-instance column='[timestamp]' derivation='Hour-Trunc' name='[thr:timestamp:qk]' pivot='key' type='quantitative' />
+            <column caption='Timestamp' datatype='datetime' name='[timestamp]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_7795449535431720967]' derivation='User' name='[usr:Calculation_7795449535431720967:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+            </column-instance>
+            <column-instance column='[Calculation_7795449535433240585]' derivation='User' name='[usr:Calculation_7795449535433240585:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+            </column-instance>
+            <column caption='Ward Name' datatype='string' name='[ward_name]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1i1a6fi1sskman1fhe5p403bekjl'>
+            <column-instance column='[ward_name]' derivation='None' name='[none:ward_name:nk]' pivot='key' type='nominal' />
+            <column caption='Ward Name' datatype='string' name='[ward_name]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:ward_name:nk]' filter-group='3'>
+            <groupfilter function='member' level='[none:ward_name:nk]' member='&quot;Ward_5&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+            <target field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[none:ward_name:nk]' />
+          </filter>
+          <slices>
+            <column>[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:ward_name:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[thr:timestamp:qk]' field-type='quantitative' max='#2019-10-04 18:00:00#' min='#2019-10-04 06:00:00#' range-type='fixed' scope='cols' type='space' />
+            <format attr='title' class='0' field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[thr:timestamp:qk]' scope='cols' value='Hour' />
+            <format attr='title' class='0' field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535431720967:qk]' scope='rows' value='Occupancy Rate (%)' />
+            <encoding attr='space' class='0' field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535433240585:qk]' field-type='quantitative' fold='true' min='-0.019965277777777776' range-type='fixedmin' scope='rows' type='space' />
+            <format attr='title' class='0' field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535433240585:qk]' scope='rows' value='Queue (# Patients)' />
+            <format attr='width' field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535431720967:qk]' value='76' />
+            <format attr='width' field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535433240585:qk]' value='76' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535431720967:qk]' value='p0%' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535431720967:qk]' value='p0%' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[:Measure Names]' value=''>
+              <formatted-text />
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.02wv83f06zzqyr1e2jqok014nm8y].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f28e2b' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535431720967:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.02wv83f06zzqyr1e2jqok014nm8y].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f28e2b' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535433240585:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.02wv83f06zzqyr1e2jqok014nm8y].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f28e2b' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535431720967:qk] + [federated.02wv83f06zzqyr1e2jqok014nm8y].[usr:Calculation_7795449535433240585:qk])</rows>
+        <cols>[federated.02wv83f06zzqyr1e2jqok014nm8y].[thr:timestamp:qk]</cols>
+      </table>
+      <simple-id uuid='{7235DE3E-C936-40D8-9430-1E64984DC3CB}' />
+    </worksheet>
+    <worksheet name='Ward demand profile'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='event_log' name='federated.1i1a6fi1sskman1fhe5p403bekjl' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1i1a6fi1sskman1fhe5p403bekjl'>
+            <column caption='c_Opening Times' datatype='datetime' name='[Calculation_7795449535423643648]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATEADD(&#13;&#10;&#13;&#10;&apos;hour&apos;, DATEPART(&apos;hour&apos;, [opening_times]), DATEADD(&#13;&#10;&#13;&#10;&apos;minute&apos;, DATEPART(&apos;minute&apos;, [opening_times]), DATEADD(&#13;&#10;&#13;&#10;&apos;second&apos;, DATEPART(&apos;second&apos;, [opening_times]), DATE([time_stamp]))))' />
+            </column>
+            <column caption='c_Closing Times' datatype='datetime' name='[Calculation_7795449535424303105]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATEADD(&#13;&#10;&#13;&#10;&apos;hour&apos;, DATEPART(&apos;hour&apos;, [closing_times]), DATEADD(&#13;&#10;&#13;&#10;&apos;minute&apos;, DATEPART(&apos;minute&apos;, [closing_times]), DATEADD(&#13;&#10;&#13;&#10;&apos;second&apos;, DATEPART(&apos;second&apos;, [closing_times]), DATE([time_stamp]))))' />
+            </column>
+            <column caption='c_n patients' datatype='integer' name='[Calculation_7795449535427010564]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='c_n patients data densification' datatype='integer' name='[Calculation_7795449535427133445]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='ZN(SUM([Calculation_7795449535427010564]))*(IIF(Index() &gt; 0, 1, 1))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column aggregation='Hour' caption='Closing Times' datatype='datetime' name='[closing_times]' role='dimension' type='ordinal' />
+            <column caption='Event Type' datatype='string' name='[event_type]' role='dimension' type='nominal' />
+            <column caption='Init Patient' datatype='boolean' name='[init_patient]' role='dimension' type='nominal' />
+            <column-instance column='[event_type]' derivation='None' name='[none:event_type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[init_patient]' derivation='None' name='[none:init_patient:nk]' pivot='key' type='nominal' />
+            <column-instance column='[ward_name]' derivation='None' name='[none:ward_name:nk]' pivot='key' type='nominal' />
+            <column aggregation='Hour' caption='Opening Times' datatype='datetime' name='[opening_times]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_7795449535423643648]' derivation='Hour-Trunc' name='[thr:Calculation_7795449535423643648:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_7795449535424303105]' derivation='Hour-Trunc' name='[thr:Calculation_7795449535424303105:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[time_stamp]' derivation='Hour-Trunc' name='[thr:time_stamp:qk]' pivot='key' type='quantitative' />
+            <column caption='Time Stamp' datatype='datetime' name='[time_stamp]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_7795449535427133445]' derivation='User' name='[usr:Calculation_7795449535427133445:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+            </column-instance>
+            <column caption='Ward Name' datatype='string' name='[ward_name]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[:Measure Names]'>
+            <groupfilter function='level-members' level='[:Measure Names]' />
+          </filter>
+          <filter class='categorical' column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:event_type:nk]'>
+            <groupfilter function='member' level='[none:event_type:nk]' member='&quot;request&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:init_patient:nk]'>
+            <groupfilter function='member' level='[none:init_patient:nk]' member='false' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:ward_name:nk]' filter-group='3'>
+            <groupfilter function='member' level='[none:ward_name:nk]' member='&quot;Ward_5&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+            <target field='[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:ward_name:nk]' />
+          </filter>
+          <slices>
+            <column>[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:event_type:nk]</column>
+            <column>[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:ward_name:nk]</column>
+            <column>[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:init_patient:nk]</column>
+            <column>[federated.1i1a6fi1sskman1fhe5p403bekjl].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:time_stamp:qk]' field-type='quantitative' max='#2019-10-04 18:00:00#' min='#2019-10-04 06:00:00#' range-type='fixed' scope='cols' type='space' />
+            <format attr='title' class='0' field='[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:time_stamp:qk]' scope='cols' value='Hour' />
+            <format attr='title' class='0' field='[federated.1i1a6fi1sskman1fhe5p403bekjl].[usr:Calculation_7795449535427133445:qk]' scope='rows' value='# patients' />
+            <encoding attr='space' class='0' field='[federated.1i1a6fi1sskman1fhe5p403bekjl].[usr:Calculation_7795449535427133445:qk]' field-type='quantitative' min='0' range-type='fixedmin' scope='rows' type='space' />
+            <format attr='width' field='[federated.1i1a6fi1sskman1fhe5p403bekjl].[usr:Calculation_7795449535427133445:qk]' value='76' />
+            <format attr='display' class='0' field='[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:time_stamp:qk]' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='line-visibility' id='refline0' value='on' />
+            <format attr='line-pattern-only' id='refline0' value='dashed' />
+            <format attr='fill-above' id='refline1' value='#00000000' />
+            <format attr='fill-below' id='refline1' value='#00000000' />
+            <format attr='line-visibility' id='refline1' value='on' />
+            <format attr='line-pattern-only' id='refline1' value='dashed' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <lod column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:Calculation_7795449535423643648:qk]' />
+              <lod column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:Calculation_7795449535424303105:qk]' />
+            </encodings>
+            <reference-line axis-column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:time_stamp:qk]' enable-instant-analytics='true' formula='min' id='refline0' label='Ward Opening Time' label-type='custom' scope='per-pane' tooltip-type='none' value-column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:Calculation_7795449535423643648:qk]' z-order='1' />
+            <reference-line axis-column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:time_stamp:qk]' enable-instant-analytics='true' formula='min' id='refline1' label='Ward Closing Time' label-type='custom' scope='per-pane' value-column='[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:Calculation_7795449535424303105:qk]' z-order='2' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.53773480653762817' />
+                <format attr='mark-transparency' value='175' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1i1a6fi1sskman1fhe5p403bekjl].[usr:Calculation_7795449535427133445:qk]</rows>
+        <cols>[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:time_stamp:qk]</cols>
+        <show-full-range>
+          <column>[federated.1i1a6fi1sskman1fhe5p403bekjl].[time_stamp]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{A1423142-EF5F-41F5-AB9F-8DA941310CBA}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource caption='event_log' name='federated.1i1a6fi1sskman1fhe5p403bekjl' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1i1a6fi1sskman1fhe5p403bekjl'>
+        <column-instance column='[ward_name]' derivation='None' name='[none:ward_name:nk]' pivot='key' type='nominal' />
+        <column caption='Ward Name' datatype='string' name='[ward_name]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98142' id='7' param='horz' type='layout-flow' w='99034' x='483' y='929'>
+            <zone h='98142' id='5' type='layout-basic' w='99034' x='483' y='929'>
+              <zone h='49071' id='3' name='Ward demand profile' w='94629' x='483' y='929'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49071' id='9' name='Ward activity profile' w='99034' x='483' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49071' id='11' type='empty' w='4405' x='95112' y='929'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='7625' id='8' mode='dropdown' name='Ward demand profile' param='[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:ward_name:nk]' type='filter' w='16800' x='81600' y='1000' />
+        <zone h='8014' id='10' name='Ward activity profile' pane-specification-id='3' param='[federated.02wv83f06zzqyr1e2jqok014nm8y].[:Measure Names]' type='color' w='22692' x='79300' y='57724' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='750' minheight='750' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='15' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98142' id='14' param='vert' type='layout-flow' w='99034' x='483' y='929'>
+                <zone h='7625' id='8' mode='dropdown' name='Ward demand profile' param='[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:ward_name:nk]' type='filter' w='16800' x='81600' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49071' id='3' is-fixed='true' name='Ward demand profile' w='94629' x='483' y='929'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49071' id='9' is-fixed='true' name='Ward activity profile' w='99034' x='483' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8014' id='10' name='Ward activity profile' pane-specification-id='3' param='[federated.02wv83f06zzqyr1e2jqok014nm8y].[:Measure Names]' type='color' w='22692' x='79300' y='57724'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{8A0A9FC3-8314-4B45-AFED-2056A41D150E}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.25' source-height='63'>
+    <window class='worksheet' name='Ward demand profile'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='dropdown' param='[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:ward_name:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <node-selection select-tuples='false'>
+            <oriented-node-reference orientation='horizontal'>
+              <node-reference>
+                <axis>[federated.1i1a6fi1sskman1fhe5p403bekjl].[thr:time_stamp:qk]</axis>
+              </node-reference>
+              <page-reference />
+            </oriented-node-reference>
+          </node-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:destination:nk]</field>
+            <field>[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:event_type:nk]</field>
+            <field>[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:init_patient:nk]</field>
+            <field>[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:ward_name:nk]</field>
+            <field>[federated.1i1a6fi1sskman1fhe5p403bekjl].[yr:Calculation_7795449535423643648:ok]</field>
+            <field>[federated.1i1a6fi1sskman1fhe5p403bekjl].[yr:Calculation_7795449535424303105:ok]</field>
+            <field>[federated.1i1a6fi1sskman1fhe5p403bekjl].[yr:time_stamp:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{7BDFB80E-85FC-4708-BAD6-D490B1A274B1}' />
+    </window>
+    <window class='worksheet' name='Ward activity profile'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='dropdown' param='[federated.1i1a6fi1sskman1fhe5p403bekjl].[none:ward_name:nk]' show-morefewerbutton='false' type='filter' />
+            <card pane-specification-id='3' param='[federated.02wv83f06zzqyr1e2jqok014nm8y].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.02wv83f06zzqyr1e2jqok014nm8y].[none:ward_name:nk]</field>
+            <field>[federated.02wv83f06zzqyr1e2jqok014nm8y].[yr:timestamp:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{2A650BA5-EDC6-4843-AD8E-8F5A3F185DA2}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Ward activity profile'>
+          <zoom type='entire-view' />
+          <highlight field='[federated.02wv83f06zzqyr1e2jqok014nm8y].[:Measure Names]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+        <viewpoint name='Ward demand profile'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='3' />
+      <simple-id uuid='{90DDA98F-92ED-43EF-8AC8-C80F83D6E18A}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+      /n8k6QnHpYOb/AAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Ward activity profile' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Ward demand profile' width='192'>
+      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
+      AElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
