@@ -37,7 +37,9 @@ def generate_demand(patient_groups, initial_timestamp: datetime.datetime,
     return results_df
 
 
-def generate_presim_data(initial_timestamp: datetime.datetime, end_timestamp: datetime.datetime):
+def generate_presim_data(initial_timestamp: datetime.datetime,
+                         end_timestamp: datetime.datetime,
+                         arrival_rate=30):
     # create test datasets to feed into the simulation
     patient_group_data = {'patient_group':  ['A', 'B', 'C', 'D'],
                           'mean_age': [25, 40, 50, 65],
@@ -108,10 +110,10 @@ def generate_presim_data(initial_timestamp: datetime.datetime, end_timestamp: da
     los_df = pd.DataFrame(los_data, columns=['patient_group', 'ward_id', 'los_probability'])
 
     demand_data_df_actual = generate_demand(['A', 'B', 'C', 'D'], initial_timestamp,
-                                            end_timestamp, 30, 'actual')
+                                            end_timestamp, arrival_rate, 'actual')
 
     demand_data_df_forecast = generate_demand(['A', 'B', 'C', 'D'], initial_timestamp,
-                                            end_timestamp, 30, 'forecast')
+                                            end_timestamp, arrival_rate, 'forecast')
 
     demand_data_df = pd.concat([demand_data_df_actual, demand_data_df_forecast], axis=0)
 

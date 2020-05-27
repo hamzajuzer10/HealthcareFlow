@@ -46,7 +46,8 @@ if __name__ == "__main__":
     # generate the presimulation test dataset
     patient_group_df, ward_df, pathway_df, los_df, demand_data_df = \
         presim_test_dataset.generate_presim_data(initial_timestamp=sim_config['sim_initial_timestamp'],
-                                                 end_timestamp=sim_config['sim_end_timestamp'])
+                                                 end_timestamp=sim_config['sim_end_timestamp'],
+                                                 arrival_rate=5)
 
     # generate the hospital initialisation state dataset
     ward_df = hospital_initialisation_dataset.generate_ward_capacity(ward_df=ward_df, ward_capacity={'001': 50,
@@ -94,4 +95,5 @@ if __name__ == "__main__":
                          hospital_init_patient_group_df,
                          hospital_init_pathway_df,
                          hospital_init_los_df,
-                         hospital_init_demand_data_df)
+                         hospital_init_demand_data_df,
+                         save=True)
