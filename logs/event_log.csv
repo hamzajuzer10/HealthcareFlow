@@ -1,0 +1,991 @@
+,patient_id,source,destination,time_stamp,event_type,patient_group,init_patient
+0,1,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+1,2,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+2,3,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+3,4,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+4,5,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+5,6,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+6,7,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+7,8,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+8,9,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+9,10,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+10,11,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+11,12,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+12,13,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+13,14,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+14,15,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+15,16,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+16,17,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+17,18,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+18,19,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+19,20,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+20,21,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+21,22,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+22,23,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+23,24,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+24,25,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+25,26,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+26,27,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+27,28,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+28,29,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+29,30,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+30,31,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+31,32,Admission,004,2019-10-04 09:00:00.000000,request,"    patient_group
+0  004_init_group",True
+32,33,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+33,34,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+34,35,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+35,36,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+36,37,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+37,38,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+38,39,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+39,40,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+40,41,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+41,42,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+42,43,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+43,44,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+44,45,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+45,46,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+46,47,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+47,48,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+48,49,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+49,50,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+50,51,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+51,52,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+52,53,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+53,54,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+54,55,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+55,56,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+56,57,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+57,58,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+58,59,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+59,60,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+60,61,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+61,62,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+62,63,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+63,64,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+64,65,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+65,66,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+66,67,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+67,68,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+68,69,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+69,70,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+70,71,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+71,72,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+72,73,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+73,74,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+74,75,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+75,76,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+76,77,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+77,78,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+78,79,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+79,80,Admission,005,2019-10-04 09:00:00.000000,request,"    patient_group
+1  005_init_group",True
+80,81,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+81,82,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+82,83,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+83,84,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+84,85,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+85,86,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+86,87,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+87,88,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+88,89,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+89,90,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+90,91,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+91,92,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+92,93,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+93,94,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+94,95,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+95,96,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+96,97,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+97,98,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+98,99,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+99,100,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+100,101,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+101,102,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+102,103,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+103,104,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+104,105,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+105,106,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+106,107,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+107,108,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+108,109,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+109,110,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+110,111,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+111,112,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+112,113,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+113,114,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+114,115,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+115,116,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+116,117,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+117,118,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+118,119,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+119,120,Admission,007,2019-10-04 09:00:00.000000,request,"    patient_group
+2  007_init_group",True
+120,121,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+121,122,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+122,123,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+123,124,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+124,125,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+125,126,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+126,127,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+127,128,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+128,129,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+129,130,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+130,131,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+131,132,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+132,133,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+133,134,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+134,135,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+135,136,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+136,137,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+137,138,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+138,139,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+139,140,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+140,141,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+141,142,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+142,143,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+143,144,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+144,145,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+145,146,Admission,008,2019-10-04 09:00:00.000000,request,"    patient_group
+3  008_init_group",True
+146,1,Admission,002,2019-10-04 09:00:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+147,1,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+148,2,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+149,3,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+150,4,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+151,5,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+152,6,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+153,7,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+154,8,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+155,9,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+156,10,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+157,11,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+158,12,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+159,13,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+160,14,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+161,15,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+162,16,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+163,17,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+164,18,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+165,19,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+166,20,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+167,21,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+168,22,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+169,23,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+170,24,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+171,25,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+172,26,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+173,27,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+174,28,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+175,29,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+176,30,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+177,31,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+178,32,Admission,004,2019-10-04 09:00:00.000000,move,"    patient_group
+0  004_init_group",True
+179,33,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+180,34,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+181,35,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+182,36,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+183,37,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+184,38,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+185,39,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+186,40,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+187,41,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+188,42,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+189,43,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+190,44,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+191,45,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+192,46,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+193,47,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+194,48,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+195,49,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+196,50,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+197,51,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+198,52,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+199,53,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+200,54,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+201,55,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+202,56,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+203,57,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+204,58,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+205,59,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+206,60,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+207,61,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+208,62,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+209,63,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+210,64,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+211,65,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+212,66,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+213,67,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+214,68,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+215,69,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+216,70,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+217,71,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+218,72,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+219,73,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+220,74,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+221,75,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+222,76,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+223,77,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+224,78,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+225,79,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+226,80,Admission,005,2019-10-04 09:00:00.000000,move,"    patient_group
+1  005_init_group",True
+227,81,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+228,82,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+229,83,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+230,84,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+231,85,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+232,86,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+233,87,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+234,88,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+235,89,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+236,90,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+237,91,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+238,92,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+239,93,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+240,94,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+241,95,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+242,96,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+243,97,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+244,98,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+245,99,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+246,100,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+247,101,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+248,102,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+249,103,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+250,104,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+251,105,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+252,106,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+253,107,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+254,108,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+255,109,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+256,110,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+257,111,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+258,112,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+259,113,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+260,114,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+261,115,Admission,007,2019-10-04 09:00:00.000000,move,"    patient_group
+2  007_init_group",True
+262,121,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+263,122,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+264,123,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+265,124,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+266,125,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+267,126,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+268,127,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+269,128,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+270,129,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+271,130,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+272,131,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+273,132,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+274,133,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+275,134,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+276,135,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+277,136,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+278,137,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+279,138,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+280,139,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+281,140,Admission,008,2019-10-04 09:00:00.000000,move,"    patient_group
+3  008_init_group",True
+282,1,Admission,002,2019-10-04 09:00:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+283,2,Admission,002,2019-10-04 10:04:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+284,2,Admission,002,2019-10-04 10:04:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+285,3,Admission,002,2019-10-04 10:13:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+286,3,Admission,002,2019-10-04 10:13:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+287,1,002,005,2019-10-04 10:23:05.694118,request,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+288,1,002,005,2019-10-04 10:23:05.694118,move,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+289,136,Ward_6,discharge,2019-10-04 10:32:14.280950,discharge,"    patient_group
+3  008_init_group",True
+290,141,Admission,008,2019-10-04 10:32:14.280950,move,"    patient_group
+3  008_init_group",True
+291,91,Ward_5,discharge,2019-10-04 10:36:19.594806,discharge,"    patient_group
+2  007_init_group",True
+292,116,Admission,007,2019-10-04 10:36:19.594806,move,"    patient_group
+2  007_init_group",True
+293,17,Ward_2,discharge,2019-10-04 10:36:42.297924,discharge,"    patient_group
+0  004_init_group",True
+294,106,Ward_5,discharge,2019-10-04 10:41:07.181742,discharge,"    patient_group
+2  007_init_group",True
+295,117,Admission,007,2019-10-04 10:41:07.181742,move,"    patient_group
+2  007_init_group",True
+296,82,Ward_5,discharge,2019-10-04 10:41:51.053381,discharge,"    patient_group
+2  007_init_group",True
+297,118,Admission,007,2019-10-04 10:41:51.053381,move,"    patient_group
+2  007_init_group",True
+298,124,Ward_6,discharge,2019-10-04 10:42:32.476542,discharge,"    patient_group
+3  008_init_group",True
+299,142,Admission,008,2019-10-04 10:42:32.476542,move,"    patient_group
+3  008_init_group",True
+300,93,Ward_5,discharge,2019-10-04 10:44:34.026623,discharge,"    patient_group
+2  007_init_group",True
+301,119,Admission,007,2019-10-04 10:44:34.026623,move,"    patient_group
+2  007_init_group",True
+302,72,Ward_3,discharge,2019-10-04 10:44:56.831348,discharge,"    patient_group
+1  005_init_group",True
+303,5,Ward_2,discharge,2019-10-04 10:45:23.799144,discharge,"    patient_group
+0  004_init_group",True
+304,102,Ward_5,discharge,2019-10-04 10:45:29.336652,discharge,"    patient_group
+2  007_init_group",True
+305,120,Admission,007,2019-10-04 10:45:29.336652,move,"    patient_group
+2  007_init_group",True
+306,20,Ward_2,discharge,2019-10-04 10:45:31.379991,discharge,"    patient_group
+0  004_init_group",True
+307,4,Admission,001,2019-10-04 10:46:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+308,4,Admission,001,2019-10-04 10:46:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+309,39,Ward_3,discharge,2019-10-04 10:46:16.509130,discharge,"    patient_group
+1  005_init_group",True
+310,112,Ward_5,discharge,2019-10-04 10:46:20.395182,discharge,"    patient_group
+2  007_init_group",True
+311,7,Ward_2,discharge,2019-10-04 10:47:06.651034,discharge,"    patient_group
+0  004_init_group",True
+312,113,Ward_5,discharge,2019-10-04 10:47:34.058173,discharge,"    patient_group
+2  007_init_group",True
+313,80,Ward_3,discharge,2019-10-04 10:47:56.174443,discharge,"    patient_group
+1  005_init_group",True
+314,135,Ward_6,discharge,2019-10-04 10:48:01.866688,discharge,"    patient_group
+3  008_init_group",True
+315,143,Admission,008,2019-10-04 10:48:01.866688,move,"    patient_group
+3  008_init_group",True
+316,65,Ward_3,discharge,2019-10-04 10:48:08.580919,discharge,"    patient_group
+1  005_init_group",True
+317,129,Ward_6,discharge,2019-10-04 10:48:10.939077,discharge,"    patient_group
+3  008_init_group",True
+318,144,Admission,008,2019-10-04 10:48:10.939077,move,"    patient_group
+3  008_init_group",True
+319,71,Ward_3,discharge,2019-10-04 10:48:19.693462,discharge,"    patient_group
+1  005_init_group",True
+320,12,Ward_2,discharge,2019-10-04 10:48:48.509002,discharge,"    patient_group
+0  004_init_group",True
+321,134,Ward_6,discharge,2019-10-04 10:48:51.224392,discharge,"    patient_group
+3  008_init_group",True
+322,145,Admission,008,2019-10-04 10:48:51.224392,move,"    patient_group
+3  008_init_group",True
+323,13,Ward_2,discharge,2019-10-04 10:49:42.026081,discharge,"    patient_group
+0  004_init_group",True
+324,25,Ward_2,discharge,2019-10-04 10:49:47.371289,discharge,"    patient_group
+0  004_init_group",True
+325,32,Ward_2,discharge,2019-10-04 10:50:16.960330,discharge,"    patient_group
+0  004_init_group",True
+326,38,Ward_3,discharge,2019-10-04 10:50:25.429399,discharge,"    patient_group
+1  005_init_group",True
+327,3,Ward_2,discharge,2019-10-04 10:50:44.532620,discharge,"    patient_group
+0  004_init_group",True
+328,67,Ward_3,discharge,2019-10-04 10:51:06.781145,discharge,"    patient_group
+1  005_init_group",True
+329,56,Ward_3,discharge,2019-10-04 10:51:15.749478,discharge,"    patient_group
+1  005_init_group",True
+330,58,Ward_3,discharge,2019-10-04 10:52:03.928846,discharge,"    patient_group
+1  005_init_group",True
+331,60,Ward_3,discharge,2019-10-04 10:52:43.133855,discharge,"    patient_group
+1  005_init_group",True
+332,42,Ward_3,discharge,2019-10-04 10:52:46.045864,discharge,"    patient_group
+1  005_init_group",True
+333,78,Ward_3,discharge,2019-10-04 10:53:27.788700,discharge,"    patient_group
+1  005_init_group",True
+334,51,Ward_3,discharge,2019-10-04 10:53:29.007766,discharge,"    patient_group
+1  005_init_group",True
+335,111,Ward_5,discharge,2019-10-04 10:53:48.388905,discharge,"    patient_group
+2  007_init_group",True
+336,18,Ward_2,discharge,2019-10-04 10:53:59.759621,discharge,"    patient_group
+0  004_init_group",True
+337,138,Ward_6,discharge,2019-10-04 10:54:06.097273,discharge,"    patient_group
+3  008_init_group",True
+338,146,Admission,008,2019-10-04 10:54:06.097273,move,"    patient_group
+3  008_init_group",True
+339,57,Ward_3,discharge,2019-10-04 10:54:23.069393,discharge,"    patient_group
+1  005_init_group",True
+340,87,Ward_5,discharge,2019-10-04 10:54:36.292282,discharge,"    patient_group
+2  007_init_group",True
+341,114,Ward_5,discharge,2019-10-04 10:54:43.773110,discharge,"    patient_group
+2  007_init_group",True
+342,27,Ward_2,discharge,2019-10-04 10:55:27.210051,discharge,"    patient_group
+0  004_init_group",True
+343,139,Ward_6,discharge,2019-10-04 10:55:37.958533,discharge,"    patient_group
+3  008_init_group",True
+344,28,Ward_2,discharge,2019-10-04 10:55:45.403633,discharge,"    patient_group
+0  004_init_group",True
+345,132,Ward_6,discharge,2019-10-04 10:56:06.185633,discharge,"    patient_group
+3  008_init_group",True
+346,59,Ward_3,discharge,2019-10-04 10:56:48.842404,discharge,"    patient_group
+1  005_init_group",True
+347,68,Ward_3,discharge,2019-10-04 10:56:51.613399,discharge,"    patient_group
+1  005_init_group",True
+348,90,Ward_5,discharge,2019-10-04 10:57:00.648324,discharge,"    patient_group
+2  007_init_group",True
+349,30,Ward_2,discharge,2019-10-04 10:57:02.568502,discharge,"    patient_group
+0  004_init_group",True
+350,107,Ward_5,discharge,2019-10-04 10:57:20.653481,discharge,"    patient_group
+2  007_init_group",True
+351,85,Ward_5,discharge,2019-10-04 10:57:40.333999,discharge,"    patient_group
+2  007_init_group",True
+352,41,Ward_3,discharge,2019-10-04 10:57:46.389933,discharge,"    patient_group
+1  005_init_group",True
+353,115,Ward_5,discharge,2019-10-04 10:57:47.678375,discharge,"    patient_group
+2  007_init_group",True
+354,14,Ward_2,discharge,2019-10-04 10:58:00.068230,discharge,"    patient_group
+0  004_init_group",True
+355,43,Ward_3,discharge,2019-10-04 10:58:21.019578,discharge,"    patient_group
+1  005_init_group",True
+356,95,Ward_5,discharge,2019-10-04 10:58:44.449795,discharge,"    patient_group
+2  007_init_group",True
+357,29,Ward_2,discharge,2019-10-04 10:58:49.334210,discharge,"    patient_group
+0  004_init_group",True
+358,96,Ward_5,discharge,2019-10-04 10:59:04.994260,discharge,"    patient_group
+2  007_init_group",True
+359,76,Ward_3,discharge,2019-10-04 10:59:15.572448,discharge,"    patient_group
+1  005_init_group",True
+360,84,Ward_5,discharge,2019-10-04 10:59:15.686870,discharge,"    patient_group
+2  007_init_group",True
+361,109,Ward_5,discharge,2019-10-04 10:59:16.096874,discharge,"    patient_group
+2  007_init_group",True
+362,66,Ward_3,discharge,2019-10-04 10:59:19.344399,discharge,"    patient_group
+1  005_init_group",True
+363,140,Ward_6,discharge,2019-10-04 10:59:23.037928,discharge,"    patient_group
+3  008_init_group",True
+364,104,Ward_5,discharge,2019-10-04 10:59:26.158450,discharge,"    patient_group
+2  007_init_group",True
+365,35,Ward_3,discharge,2019-10-04 10:59:39.567218,discharge,"    patient_group
+1  005_init_group",True
+366,44,Ward_3,discharge,2019-10-04 10:59:40.764494,discharge,"    patient_group
+1  005_init_group",True
+367,54,Ward_3,discharge,2019-10-04 10:59:42.729998,discharge,"    patient_group
+1  005_init_group",True
+368,100,Ward_5,discharge,2019-10-04 10:59:44.718794,discharge,"    patient_group
+2  007_init_group",True
+369,98,Ward_5,discharge,2019-10-04 10:59:53.704184,discharge,"    patient_group
+2  007_init_group",True
+370,69,Ward_3,discharge,2019-10-04 11:00:03.029525,discharge,"    patient_group
+1  005_init_group",True
+371,40,Ward_3,discharge,2019-10-04 11:00:26.680002,discharge,"    patient_group
+1  005_init_group",True
+372,83,Ward_5,discharge,2019-10-04 11:00:37.484842,discharge,"    patient_group
+2  007_init_group",True
+373,4,Ward_2,discharge,2019-10-04 11:00:44.174651,discharge,"    patient_group
+0  004_init_group",True
+374,88,Ward_5,discharge,2019-10-04 11:00:45.358182,discharge,"    patient_group
+2  007_init_group",True
+375,47,Ward_3,discharge,2019-10-04 11:00:46.101018,discharge,"    patient_group
+1  005_init_group",True
+376,92,Ward_5,discharge,2019-10-04 11:00:51.023106,discharge,"    patient_group
+2  007_init_group",True
+377,101,Ward_5,discharge,2019-10-04 11:01:00.732210,discharge,"    patient_group
+2  007_init_group",True
+378,6,Ward_2,discharge,2019-10-04 11:01:04.547203,discharge,"    patient_group
+0  004_init_group",True
+379,45,Ward_3,discharge,2019-10-04 11:01:17.026740,discharge,"    patient_group
+1  005_init_group",True
+380,55,Ward_3,discharge,2019-10-04 11:01:17.151730,discharge,"    patient_group
+1  005_init_group",True
+381,49,Ward_3,discharge,2019-10-04 11:01:26.289095,discharge,"    patient_group
+1  005_init_group",True
+382,15,Ward_2,discharge,2019-10-04 11:01:27.952504,discharge,"    patient_group
+0  004_init_group",True
+383,16,Ward_2,discharge,2019-10-04 11:01:31.797168,discharge,"    patient_group
+0  004_init_group",True
+384,121,Ward_6,discharge,2019-10-04 11:01:33.371539,discharge,"    patient_group
+3  008_init_group",True
+385,64,Ward_3,discharge,2019-10-04 11:01:35.190794,discharge,"    patient_group
+1  005_init_group",True
+386,31,Ward_2,discharge,2019-10-04 11:01:52.296533,discharge,"    patient_group
+0  004_init_group",True
+387,11,Ward_2,discharge,2019-10-04 11:02:06.913741,discharge,"    patient_group
+0  004_init_group",True
+388,126,Ward_6,discharge,2019-10-04 11:02:26.625590,discharge,"    patient_group
+3  008_init_group",True
+389,74,Ward_3,discharge,2019-10-04 11:02:36.690052,discharge,"    patient_group
+1  005_init_group",True
+390,19,Ward_2,discharge,2019-10-04 11:02:47.392786,discharge,"    patient_group
+0  004_init_group",True
+391,22,Ward_2,discharge,2019-10-04 11:03:05.120135,discharge,"    patient_group
+0  004_init_group",True
+392,62,Ward_3,discharge,2019-10-04 11:03:22.080449,discharge,"    patient_group
+1  005_init_group",True
+393,133,Ward_6,discharge,2019-10-04 11:03:22.735455,discharge,"    patient_group
+3  008_init_group",True
+394,86,Ward_5,discharge,2019-10-04 11:04:01.523575,discharge,"    patient_group
+2  007_init_group",True
+395,94,Ward_5,discharge,2019-10-04 11:04:06.157136,discharge,"    patient_group
+2  007_init_group",True
+396,137,Ward_6,discharge,2019-10-04 11:04:08.298643,discharge,"    patient_group
+3  008_init_group",True
+397,122,Ward_6,discharge,2019-10-04 11:04:10.246672,discharge,"    patient_group
+3  008_init_group",True
+398,125,Ward_6,discharge,2019-10-04 11:04:14.804738,discharge,"    patient_group
+3  008_init_group",True
+399,2,002,006,2019-10-04 11:04:35.490765,request,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+400,131,Ward_6,discharge,2019-10-04 11:04:42.367337,discharge,"    patient_group
+3  008_init_group",True
+401,97,Ward_5,discharge,2019-10-04 11:04:44.586258,discharge,"    patient_group
+2  007_init_group",True
+402,2,Ward_2,discharge,2019-10-04 11:05:09.719977,discharge,"    patient_group
+0  004_init_group",True
+403,77,Ward_3,discharge,2019-10-04 11:05:23.315034,discharge,"    patient_group
+1  005_init_group",True
+404,46,Ward_3,discharge,2019-10-04 11:06:56.533970,discharge,"    patient_group
+1  005_init_group",True
+405,37,Ward_3,discharge,2019-10-04 11:07:27.725545,discharge,"    patient_group
+1  005_init_group",True
+406,130,Ward_6,discharge,2019-10-04 11:07:36.439932,discharge,"    patient_group
+3  008_init_group",True
+407,24,Ward_2,discharge,2019-10-04 11:07:52.514554,discharge,"    patient_group
+0  004_init_group",True
+408,75,Ward_3,discharge,2019-10-04 11:08:26.711571,discharge,"    patient_group
+1  005_init_group",True
+409,128,Ward_6,discharge,2019-10-04 11:08:42.502536,discharge,"    patient_group
+3  008_init_group",True
+410,26,Ward_2,discharge,2019-10-04 11:09:07.468338,discharge,"    patient_group
+0  004_init_group",True
+411,52,Ward_3,discharge,2019-10-04 11:09:11.446517,discharge,"    patient_group
+1  005_init_group",True
+412,108,Ward_5,discharge,2019-10-04 11:09:24.648345,discharge,"    patient_group
+2  007_init_group",True
+413,73,Ward_3,discharge,2019-10-04 11:09:54.616094,discharge,"    patient_group
+1  005_init_group",True
+414,48,Ward_3,discharge,2019-10-04 11:09:55.560932,discharge,"    patient_group
+1  005_init_group",True
+415,99,Ward_5,discharge,2019-10-04 11:10:00.784940,discharge,"    patient_group
+2  007_init_group",True
+416,123,Ward_6,discharge,2019-10-04 11:10:08.668196,discharge,"    patient_group
+3  008_init_group",True
+417,50,Ward_3,discharge,2019-10-04 11:10:08.771264,discharge,"    patient_group
+1  005_init_group",True
+418,34,Ward_3,discharge,2019-10-04 11:10:22.758944,discharge,"    patient_group
+1  005_init_group",True
+419,63,Ward_3,discharge,2019-10-04 11:10:23.660551,discharge,"    patient_group
+1  005_init_group",True
+420,110,Ward_5,discharge,2019-10-04 11:10:45.518769,discharge,"    patient_group
+2  007_init_group",True
+421,53,Ward_3,discharge,2019-10-04 11:10:49.761397,discharge,"    patient_group
+1  005_init_group",True
+422,127,Ward_6,discharge,2019-10-04 11:11:22.988677,discharge,"    patient_group
+3  008_init_group",True
+423,61,Ward_3,discharge,2019-10-04 11:11:41.450859,discharge,"    patient_group
+1  005_init_group",True
+424,81,Ward_5,discharge,2019-10-04 11:11:50.848862,discharge,"    patient_group
+2  007_init_group",True
+425,105,Ward_5,discharge,2019-10-04 11:12:39.036859,discharge,"    patient_group
+2  007_init_group",True
+426,9,Ward_2,discharge,2019-10-04 11:13:01.359311,discharge,"    patient_group
+0  004_init_group",True
+427,89,Ward_5,discharge,2019-10-04 11:13:48.431588,discharge,"    patient_group
+2  007_init_group",True
+428,21,Ward_2,discharge,2019-10-04 11:15:03.075648,discharge,"    patient_group
+0  004_init_group",True
+429,33,Ward_3,discharge,2019-10-04 11:15:20.394287,discharge,"    patient_group
+1  005_init_group",True
+430,1,Ward_2,discharge,2019-10-04 11:15:23.616716,discharge,"    patient_group
+0  004_init_group",True
+431,10,Ward_2,discharge,2019-10-04 11:17:31.166199,discharge,"    patient_group
+0  004_init_group",True
+432,23,Ward_2,discharge,2019-10-04 11:18:49.307233,discharge,"    patient_group
+0  004_init_group",True
+433,5,Admission,001,2019-10-04 11:19:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+434,5,Admission,001,2019-10-04 11:19:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+435,6,Admission,001,2019-10-04 11:21:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+436,6,Admission,001,2019-10-04 11:21:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+437,103,Ward_5,discharge,2019-10-04 11:21:47.673466,discharge,"    patient_group
+2  007_init_group",True
+438,36,Ward_3,discharge,2019-10-04 11:22:04.388420,discharge,"    patient_group
+1  005_init_group",True
+439,70,Ward_3,discharge,2019-10-04 11:22:32.068591,discharge,"    patient_group
+1  005_init_group",True
+440,3,002,005,2019-10-04 11:23:09.376096,request,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+441,3,002,005,2019-10-04 11:23:09.376096,move,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+442,8,Ward_2,discharge,2019-10-04 11:25:41.967607,discharge,"    patient_group
+0  004_init_group",True
+443,7,Admission,001,2019-10-04 11:27:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+444,7,Admission,001,2019-10-04 11:27:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+445,79,Ward_3,discharge,2019-10-04 11:33:36.213118,discharge,"    patient_group
+1  005_init_group",True
+446,5,001,007,2019-10-04 11:34:07.082616,request,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+447,5,001,007,2019-10-04 11:34:07.082616,move,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+448,8,Admission,002,2019-10-04 11:53:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+449,8,Admission,002,2019-10-04 11:53:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+450,7,001,003,2019-10-04 12:28:37.063933,request,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+451,7,001,003,2019-10-04 12:28:37.063933,move,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+452,141,Ward_6,discharge,2019-10-04 12:38:08.807382,discharge,"    patient_group
+3  008_init_group",True
+453,9,Admission,002,2019-10-04 12:42:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+454,9,Admission,002,2019-10-04 12:42:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+455,9,002,004,2019-10-04 12:42:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+456,9,002,004,2019-10-04 12:42:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+457,117,Ward_5,discharge,2019-10-04 12:44:58.836508,discharge,"    patient_group
+2  007_init_group",True
+458,143,Ward_6,discharge,2019-10-04 12:45:01.760551,discharge,"    patient_group
+3  008_init_group",True
+459,118,Ward_5,discharge,2019-10-04 12:45:15.421387,discharge,"    patient_group
+2  007_init_group",True
+460,119,Ward_5,discharge,2019-10-04 12:45:43.934860,discharge,"    patient_group
+2  007_init_group",True
+461,142,Ward_6,discharge,2019-10-04 12:52:04.474633,discharge,"    patient_group
+3  008_init_group",True
+462,146,Ward_6,discharge,2019-10-04 12:52:31.559233,discharge,"    patient_group
+3  008_init_group",True
+463,144,Ward_6,discharge,2019-10-04 12:54:45.777035,discharge,"    patient_group
+3  008_init_group",True
+464,8,002,006,2019-10-04 12:55:23.986099,request,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+465,145,Ward_6,discharge,2019-10-04 12:55:39.258378,discharge,"    patient_group
+3  008_init_group",True
+466,116,Ward_5,discharge,2019-10-04 12:58:19.565358,discharge,"    patient_group
+2  007_init_group",True
+467,10,Admission,002,2019-10-04 12:59:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+468,10,Admission,002,2019-10-04 12:59:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+469,8,002,006,2019-10-04 12:59:23.986099,move,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+470,2,002,006,2019-10-04 12:59:35.490765,move,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+471,120,Ward_5,discharge,2019-10-04 13:00:40.665545,discharge,"    patient_group
+2  007_init_group",True
+472,11,Admission,001,2019-10-04 13:03:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+473,11,Admission,001,2019-10-04 13:03:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+474,10,002,006,2019-10-04 13:16:53.512348,request,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+475,10,002,006,2019-10-04 13:16:53.512348,move,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+476,12,Admission,001,2019-10-04 13:33:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+477,12,Admission,001,2019-10-04 13:33:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+2             C        50             pneumonia               male",False
+478,13,Admission,002,2019-10-04 13:47:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+479,13,Admission,002,2019-10-04 13:47:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+480,14,Admission,001,2019-10-04 13:57:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+0             A        25              diabetes               male",False
+481,14,Admission,001,2019-10-04 13:57:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+0             A        25              diabetes               male",False
+482,4,001,007,2019-10-04 14:07:13.160639,request,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+483,4,001,007,2019-10-04 14:07:13.160639,move,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+484,13,002,006,2019-10-04 14:08:43.037941,request,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+485,13,002,006,2019-10-04 14:08:43.037941,move,"  patient_group  mean_age predominant_condition predomimant_gender
+1             B        40         heart_illness             female",False
+486,6,001,007,2019-10-04 14:52:41.949960,request,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+487,6,001,007,2019-10-04 14:52:41.949960,move,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+488,15,Admission,002,2019-10-04 16:02:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+0             A        25              diabetes               male",False
+489,15,Admission,002,2019-10-04 16:02:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+0             A        25              diabetes               male",False
+490,11,001,007,2019-10-04 16:17:28.930318,request,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+491,11,001,007,2019-10-04 16:17:28.930318,move,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+492,16,Admission,001,2019-10-04 16:52:00.000000,request,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+493,16,Admission,001,2019-10-04 16:52:00.000000,move,"  patient_group  mean_age predominant_condition predomimant_gender
+3             D        65                cancer             female",False
+494,15,002,006,2019-10-04 16:55:02.264695,request,"  patient_group  mean_age predominant_condition predomimant_gender
+0             A        25              diabetes               male",False
