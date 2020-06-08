@@ -61,11 +61,11 @@ def clip_gradient(optimizer, grad_clip):
                 param.grad.data.clamp_(-grad_clip, grad_clip)
 
 
-def save_checkpoint(epoch, epochs_since_improvement, encoder, decoder, encoder_optimizer, decoder_optimizer,
+def save_checkpoint(model_name, epoch, epochs_since_improvement, encoder, decoder, encoder_optimizer, decoder_optimizer,
                     score, is_best):
     """
     Saves model checkpoint.
-
+    :param model_name: model name
     :param epoch: epoch number
     :param epochs_since_improvement: number of epochs since last improvement in BLEU-4 score
     :param encoder: encoder model
@@ -83,10 +83,10 @@ def save_checkpoint(epoch, epochs_since_improvement, encoder, decoder, encoder_o
              'encoder_optimizer': encoder_optimizer,
              'decoder_optimizer': decoder_optimizer}
     filename = 'checkpoint_' + '.pth.tar'
-    torch.save(state, filename)
+    torch.save(state, model_name + "_" + filename)
     # If this checkpoint is the best so far, store a copy so it doesn't get overwritten by a worse checkpoint
     if is_best:
-        torch.save(state, 'BEST_' + filename)
+        torch.save(state, model_name + "_" + 'BEST_' + filename)
 
 
 class AverageMeter(object):
