@@ -1,54 +1,13 @@
-"""
--- HOSPITAL SIMULATION --
-
-Description:
-1. Patients arrive in the hospital
-2. They are given a random ward that they will move to once they get a free bed
-3. Patients can move from ward to ward before leaving the sim
-    We do this with a transition prob square matrix where columns/rows are wards + discharge
-
-Future steps:
-5. Random los_dist for each ward stay (log norm) [easy]
-6. Assign other attributes to the patient class (e.g. age, condition, gender) that will define their los_dist and their ward
-    transition matrix (also needs to take into account the number of wards already visited) [hard]
-7. Add additional resources e.g. nurses, consultants, X-ray machine etc.
-    These resources can be local to the ward or part of the entire ward system [medium-hard]
-9. Develop the Discharge process [medium]
-10. Edge case for patients swapping beds when they need each other's bed and there is no bed availability [very hard]
-11. Add first ward in the transition matrix [easy]
-12. Add all existing patients from a DataFrame at time 0 with their remaining LOS etc. [easy]
-
-Done:
-8. Develop the ED process
-4. Random arrival time for patients [easy]
-
-Notes:
-a. __dict__ for a process object
-    'env': <simpy.core.Environment object at 0x0000017ABD2E6FD0>, 'callbacks': None, '_value': None
-    ,'_generator': <generator object Patient.spell at 0x0000017ABAB54D68>, '_target': None, '_ok': True
-
-b. __dict__ for requests
-    env': <simpy.core.Environment object at 0x0000017ABC658FD0>
-    ,'callbacks': [<bound method BaseResource._trigger_get of
-                   <simpy.resources.resource.Resource object at 0x0000017ABC658780>>]
-    ,'_value': None, 'resource': <simpy.resources.resource.Resource object at 0x0000017ABC658780>
-    ,'proc': <Process(spell) object at 0x17abc6583c8>, 'usage_since': 0, '_ok': True}
-
-b. __dict__ for resource
-    '_env': <simpy.core.Environment object at 0x0000026597173748>, '_capacity': 1, 'put_queue': [], 'get_queue': []
-    ,'request': <bound method Request of <simpy.resources.resource.Resource object at 0x0000026597173668>>
-    ,'release': <bound method Release of <simpy.resources.resource.Resource object at 0x0000026597173668>>
-    ,'users': [], 'queue': []
-"""
 import datetime
 import os
+import sys
 from collections import namedtuple
 from functools import wraps
-import matplotlib.patches as mpatches
-import matplotlib.pyplot as plt
 import pandas as pd
 from simpy import Environment, Resource
 from timebetween import is_time_between
+from simulation_dataset import hospital_initialisation_dataset, presim_test_dataset
+from simulation import sim_configuration_dataset
 
 # global variable for event log
 global_event_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'source', 'destination', 'time_stamp', 'event_type'])
@@ -60,6 +19,17 @@ global_resource_log = pd.DataFrame(columns=['ward_id', 'ward_name', 'timestamp',
 global_delay_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'source', 'destination', 'delays', 'timestamp'])
 # total waiting time
 T = 0
+
+
+# To silence the prints in the model when we try to find the optimal
+class HiddenPrints:
+    def __enter__(self):
+        self._original_stdout = sys.stdout
+        sys.stdout = open(os.devnull, 'w')
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        sys.stdout.close()
+        sys.stdout = self._original_stdout
 
 
 # Colour class to colour code simulation events with different colours in the command prompt
@@ -438,86 +408,25 @@ class Patient:
             counter += 1
 
 
-def gantt_plot(occupancy_log, input_wards, save_file=""):
-    df_occupancy_log = pd.DataFrame(occupancy_log, columns=['patient_id', 'state', 'start_time', 'end_time'])
-    # colour ref for Gantt chart
-    state_col_ref = {'ED': 'olive', 'Waiting': 'darkgray'}
-    count = 0
-
-    cols_whitelist = ['red', 'green', 'blue', 'orange', 'purple', 'yellow', 'white']
-    for key in input_wards.keys():
-        state_col_ref[key] = cols_whitelist[count]
-        count += 1
-
-    state_col_ref['Discharge'] = 'white'
-
-    sim_end = df_occupancy_log['end_time'].max()
-
-    fig, gnt = plt.subplots()
-    gnt.set_xlim(0, sim_end)
-
-    # Setting labels for x-axis and y-axis
-    gnt.set_xlabel('simulation time (min)')
-    gnt.set_ylabel('patient')
-
-    p_ids = sorted(list(df_occupancy_log['patient_id'].unique()))
-    # Setting ticks on y-axis
-    gnt.set_yticks([10 * i for i in list(range(1, len(p_ids)))])
-    # Labelling tickets of y-axis
-    gnt.set_yticklabels(p_ids)
-
-    # Setting graph attribute
-    gnt.grid(True)
-
-    # Create the bars
-    for ind, entry in df_occupancy_log.iterrows():
-        start = entry[2]
-        end = entry[3] if entry[3] is not False else sim_end
-        duration = end - start
-        state = entry[1]
-        pos = p_ids.index(entry[0]) * 10
-        gnt.broken_barh([(start, duration)], (pos, 10), facecolors=state_col_ref[state])
-
-    list_cols = []
-    for key in state_col_ref.keys():
-        list_cols.append(mpatches.Patch(color=state_col_ref[key], label=key))
-
-    plt.legend(handles=list_cols, loc='lower right')
-    fig.suptitle('Patient journey', fontsize=16)
-    plt.show()
-    # Save/don't save chart in current dir
-    if save_file == "":
-        print('Chart not saved')
-    else:
-        plt.savefig(save_file)
-        print('Chart saved as %s in %s' % (save_file, os.getcwd()))
-    return df_occupancy_log
-
-
-def save_logs(**kwargs):
+def save_logs(path, dict):
     """Save dataframe objects"""
 
-    for key, value in kwargs.items():
+    for key, value in dict.items():
 
         # save global variables to a file
-        value.to_csv('logs//{a}.txt'.format(a=key), encoding='utf-8')
-        value.to_csv('logs//{a}.csv'.format(a=key), encoding='utf-8')
+        value.to_csv(path + '{a}.txt'.format(a=key), encoding='utf-8')
+        value.to_csv(path + '{a}.csv'.format(a=key), encoding='utf-8')
 
 
-
-
-def model_run(patient_group_df,
-              ward_df,
+def model_run(ward_df,
               pathway_df,
               los_df,
               demand_data_df,
               sim_config,
-              hospital_init_patient_group_df=None,
               hospital_init_pathway_df=None,
               hospital_init_los_df=None,
               hospital_init_demand_data_df=None,
-              save=True,
-              opt=False):
+              save_dir=None):
     """
     Run the model
     """
@@ -598,15 +507,67 @@ def model_run(patient_group_df,
     temp_env.run(until=time_mins)
 
     # save logs
-    if save:
-        save_logs(resource_log=global_resource_log,
-                  occupancy_log=global_occupancy_log,
-                  event_log=global_event_log,
-                  delay_log=global_delay_log,
-                  ward_log=ward_df)
+    if save_dir:
+        save_dict = {'resource_log': global_resource_log,
+                     'occupancy_log': global_occupancy_log,
+                     'event_log': global_event_log,
+                     'delay_log': global_delay_log,
+                     'ward_log': ward_df}
+        save_logs(path=save_dir, dict=save_dict)
 
-    # if opt:
-    #     return T
-    # else:
-    #     df_log = gantt_plot(global_occupancy_log, input_wards=input_wards, save_file=save_file)
-    #     return T, proc_list, df_log, global_event_log
+
+if __name__ == "__main__":
+
+    # generate the sim config dataset
+    sim_config = sim_configuration_dataset.generate_sim_config()
+
+    # generate the presimulation test dataset
+    patient_group_df, ward_df, pathway_df, los_df, demand_data_df = \
+        presim_test_dataset.generate_presim_data(initial_timestamp=sim_config['sim_initial_timestamp'],
+                                                 end_timestamp=sim_config['sim_end_timestamp'],
+                                                 arrival_rate=15)
+
+    # generate the hospital initialisation state dataset
+    ward_df = hospital_initialisation_dataset.generate_ward_capacity(ward_df=ward_df, ward_capacity={'001': 50,
+                                                                                                     '002': 25,
+                                                                                                     '003': 45,
+                                                                                                     '004': 60,
+                                                                                                     '005': 80,
+                                                                                                     '006': 70,
+                                                                                                     '007': 35,
+                                                                                                     '008': 20,
+                                                                                                     '009': sys.maxsize})
+
+    if sim_config['hospital_init']:
+
+        hospital_init_patient_group_df, hospital_init_pathway_df, hospital_init_los_df, hospital_init_demand_data_df = \
+        hospital_initialisation_dataset.generate_init_state(initial_timestamp= sim_config['sim_initial_timestamp'],
+                                                            bed_occupancy_rate= {'004': 0.54, '005': 0.6, '007': 1.0, '008': 1.0},
+                                                            ward_queues= {'007': 5, '008': 6},
+                                                            expected_ward_LoS= 120,
+                                                            stdev_ward_LoS= 10,
+                                                            ward_LoS_cap_min= 15,
+                                                            ward_LoS_cap_max= 540,
+                                                            ward_df=ward_df)
+    else:
+        hospital_init_patient_group_df, hospital_init_pathway_df, hospital_init_los_df, hospital_init_demand_data_df = \
+            None, None, None, None
+
+    if sim_config['actual_vs_forecast'] == 'actual':
+
+        demand_data_df = demand_data_df[demand_data_df['actual_vs_forecast'] == 'actual']
+
+    else:
+
+        demand_data_df = demand_data_df[demand_data_df['actual_vs_forecast'] == 'forecast']
+
+    # Set parameters and run the model
+    model_run(ward_df=ward_df,
+              pathway_df=pathway_df,
+              los_df=los_df,
+              demand_data_df=demand_data_df,
+              sim_config=sim_config,
+              hospital_init_pathway_df=hospital_init_pathway_df,
+              hospital_init_los_df=hospital_init_los_df,
+              hospital_init_demand_data_df=hospital_init_demand_data_df,
+              save_dir="..//logs//")
