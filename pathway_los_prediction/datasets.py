@@ -1,6 +1,5 @@
 import torch
 from torch.utils.data import Dataset
-import h5py
 import json
 import os
 import pandas as pd
@@ -11,65 +10,50 @@ class PathwayDataset(Dataset):
     A PyTorch Dataset class to be used in a PyTorch DataLoader to create batches.
     """
 
-    def __init__(self, file_name, data_folder, data_name, split, transform=None):
+    def __init__(self, data_folder, split):
         """
         :param data_folder: folder where data files are stored
-        :param data_name: base name of processed datasets
         :param split: split, one of 'TRAIN', 'VAL', or 'TEST'
-        :param transform: image transform pipeline
         """
         self.split = split
         assert self.split in {'TRAIN', 'VAL', 'TEST'}
 
-        # Open csv file where Pathway and LoS data is stored
-        file_path = split + "_" + file_name
+        # Load encoded pathways (completely into memory)
+        with open(os.path.join(data_folder, self.split + '_PATHWAYS' + '.json'), 'r') as j:
+            self.pathways = json.load(j)
 
-        self.df = pd.read_pickle(file_path)
-        self.data = self.df.to_numpy()
-        self.x, self.y = (torch.from_numpy(self.data[:, :n_inp]),
-                          torch.from_numpy(self.data[:, n_inp:]))
+        # Load pathway lengths (completely into memory)
+        with open(os.path.join(data_folder, self.split + '_PATHWAY_LEN' + '.json'), 'r') as j:
+            self.pathway_len = json.load(j)
 
-        # map all categorical variables
-        
+        # Load ward los (completely into memory)
+        with open(os.path.join(data_folder, self.split + '_LOS' + '.json'), 'r') as j:
+            self.los = json.load(j)
 
-        # Open hdf5 file where images are stored
-        self.h = h5py.File(os.path.join(data_folder, self.split + '_IMAGES_' + data_name + '.hdf5'), 'r', libver='latest', swmr=True)
-        self.imgs = self.h['images']
+        # Load continuous features (completely into memory)
+        with open(os.path.join(data_folder, self.split + '_CONT_FEATURES' + '.json'), 'r') as j:
+            self.cont_features = json.load(j)
 
-        # Captions per image
-        self.cpi = self.h.attrs['captions_per_image']
-
-        # Load encoded captions (completely into memory)
-        with open(os.path.join(data_folder, self.split + '_CAPTIONS_' + data_name + '.json'), 'r') as j:
-            self.captions = json.load(j)
-
-        # Load caption lengths (completely into memory)
-        with open(os.path.join(data_folder, self.split + '_CAPLENS_' + data_name + '.json'), 'r') as j:
-            self.caplens = json.load(j)
-
-        # PyTorch transformation pipeline for the image (normalizing, etc.)
-        self.transform = transform
+        # Load categorical features (completely into memory)
+        with open(os.path.join(data_folder, self.split + '_CAT_FEATURES' + '.json'), 'r') as j:
+            self.cat_features = json.load(j)
 
         # Total number of datapoints
-        self.dataset_size = len(self.captions)
+        self.dataset_size = len(self.pathways)
 
     def __getitem__(self, i):
-        # Remember, the Nth caption corresponds to the (N // captions_per_image)th image
-        img = torch.FloatTensor(self.imgs[i // self.cpi] / 255.)
-        if self.transform is not None:
-            img = self.transform(img)
 
-        caption = torch.LongTensor(self.captions[i])
+        cn_features = torch.FloatTensor(self.cont_features[i])
 
-        caplen = torch.LongTensor([self.caplens[i]])
+        ct_features = torch.LongTensor(self.cat_features[i])
 
-        if self.split is 'TRAIN':
-            return img, caption, caplen
-        else:
-            # For validation of testing, also return all 'captions_per_image' captions to find BLEU-4 score
-            all_captions = torch.LongTensor(
-                self.captions[((i // self.cpi) * self.cpi):(((i // self.cpi) * self.cpi) + self.cpi)])
-            return img, caption, caplen, all_captions
+        pathway = torch.LongTensor(self.pathways[i])
+
+        p_len = torch.LongTensor([self.pathway_len[i]])
+
+        los = torch.FloatTensor(self.los[i])
+
+        return cn_features, ct_features, pathway, p_len, los
 
     def __len__(self):
         return self.dataset_size
