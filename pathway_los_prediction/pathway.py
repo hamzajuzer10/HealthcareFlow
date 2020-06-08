@@ -5,45 +5,34 @@ import json
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
-import skimage.transform
 import argparse
-from PIL import Image
 
+data_folder = '..\\sample_datasets'  # folder with data files saved by create_input_dataset.py
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-def pathway_vector_beam_search(encoder, decoder, image_path, ward_map, beam_size=3):
+def pathway_vector_beam_search(cat_features, cont_features, encoder, decoder, ward_map, beam_size=3):
     """
-    Reads an image and captions it with beam search.
-
+    Reads an image and captions it with beam search
+    :param cat_features [# cat features]
+    :param cont_features [# cont features]
     :param encoder: encoder model
     :param decoder: decoder model
-    :param image_path: path to image
-    :param ward_map: word map
+    :param ward_map: ward map
     :param beam_size: number of sequences to consider at each decode-step
     :return: caption, weights for visualization
     """
 
     k = beam_size
-    vocab_size = len(word_map)
+    vocab_size = len(ward_map)
 
-    # Read image and process
-    img = imread(image_path)
-    if len(img.shape) == 2:
-        img = img[:, :, np.newaxis]
-        img = np.concatenate([img, img, img], axis=2)
-    img = imresize(img, (256, 256))
-    img = img.transpose(2, 0, 1)
-    img = img / 255.
-    img = torch.FloatTensor(img).to(device)
-    normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                                     std=[0.229, 0.224, 0.225])
-    transform = transforms.Compose([normalize])
-    image = transform(img)  # (3, 256, 256)
+    # Read test dataset
 
-    # Encode
-    image = image.unsqueeze(0)  # (1, 3, 256, 256)
-    encoder_out = encoder(image)  # (1, enc_image_size, enc_image_size, encoder_dim)
+    # Encode (add 1 as the batch size)
+    cat_features = cat_features.unsqueeze(0)  # (1, # cat features)
+    cont_features = cat_features.unsqueeze(0)  # (1, # cat features)
+
+    encoder_out = encoder(cont_features, cat_features)  # (1, # of embeddings + # of cont features)
     enc_image_size = encoder_out.size(1)
     encoder_dim = encoder_out.size(3)
 
