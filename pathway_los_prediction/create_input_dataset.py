@@ -60,8 +60,18 @@ def create_input_files(input_file_path, output_file_dir, max_pathway_len, min_wa
 
         return enc_p
 
+    def encode_ward_los(x):
+        ward_los_list = x['ward_los']
+        enc_p = [0] + ward_los_list + \
+                [0] + [0] * (max_pathway_len - len(ward_los_list))
+
+        return enc_p
+
     # Encode wards
     data_df['patient_pathway'] = data_df.apply(encode_ward, axis=1)
+
+    # Encode ward LoS
+    data_df['ward_los'] = data_df.apply(encode_ward_los, axis=1)
 
     # update pathway length to include both start and end codes
     data_df['pathway_len'] += 2
@@ -88,16 +98,6 @@ def create_input_files(input_file_path, output_file_dir, max_pathway_len, min_wa
         _feature_map = {k: v + 1 for v, k in enumerate(v_unique)}
         feature_map[map_name] = _feature_map
 
-    # Create a max min map on continuous variables
-    if config_dict['minmax_scale_continuous_features']:
-        for col in train_df[config_dict['pathway_los_continuous_features']]:
-            _max = train_df[col].max()
-            _min = train_df[col].min()
-            interval = _max - _min
-            map_name = col + "_map"
-            _feature_map = {'max': _max, 'min': _min, 'interval': interval}
-            feature_map[map_name] = _feature_map
-
     # apply categorical feature maps to train, val and test datasets
     for col in train_df[config_dict['pathway_los_categorical_features']]:
         train_df[col] = train_df[col].map(feature_map[str(col) + "_map"])
@@ -111,21 +111,15 @@ def create_input_files(input_file_path, output_file_dir, max_pathway_len, min_wa
         test_df[col] = test_df[col].map(feature_map[str(col) + "_map"])
     test_df[col].fillna(value=0, inplace=True)
 
-    # apply continuous feature rescaling to train, val and test datasets
-    for col in train_df[config_dict['pathway_los_continuous_features']]:
-        train_df[col] = train_df.apply(lambda x: max(0, min((x[col] - feature_map[str(col) + "_map"]['min'])/feature_map[str(col) + "_map"]['interval'], 1)), axis=1)
-
-    for col in val_df[config_dict['pathway_los_continuous_features']]:
-        val_df[col] = val_df.apply(lambda x: max(0, min((x[col] - feature_map[str(col) + "_map"]['min'])/feature_map[str(col) + "_map"]['interval'], 1)), axis=1)
-
-    for col in test_df[config_dict['pathway_los_continuous_features']]:
-        test_df[col] = test_df.apply(lambda x: max(0, min((x[col] - feature_map[str(col) + "_map"]['min'])/feature_map[str(col) + "_map"]['interval'], 1)), axis=1)
+    # Create a map of categorical features to embedding dimensions
+    cat_dims = [int(train_df[col].nunique()) for col in config_dict['pathway_los_categorical_features']]
+    emb_dims = [[x, min(config_dict['max_embedding_dim'], (x + 1) // 2)] for x in cat_dims]
 
     # Save ward map, feature maps to a json
-    with open(os.path.join(output_file_dir, 'ward_map' + '.json'), 'w') as j:
+    with open(os.path.join(output_file_dir, 'WARD_MAP' + '.json'), 'w') as j:
         json.dump(ward_map, j)
 
-    with open(os.path.join(output_file_dir, 'feature_map' + '.json'), 'w') as j:
+    with open(os.path.join(output_file_dir, 'FEATURE_MAP' + '.json'), 'w') as j:
         json.dump(feature_map, j)
 
     # Save encoded pathways and their lengths to JSON files
@@ -147,6 +141,16 @@ def create_input_files(input_file_path, output_file_dir, max_pathway_len, min_wa
     with open(os.path.join(output_file_dir, 'TEST' + '_PATHWAY_LEN' + '.json'), 'w') as j:
         json.dump(test_df['pathway_len'].tolist(), j)
 
+    # Save ward LoS to a json
+    with open(os.path.join(output_file_dir, 'TRAIN' + '_LOS' + '.json'), 'w') as j:
+        json.dump(train_df['ward_los'].tolist(), j)
+
+    with open(os.path.join(output_file_dir, 'VAL' + '_LOS' + '.json'), 'w') as j:
+        json.dump(val_df['ward_los'].tolist(), j)
+
+    with open(os.path.join(output_file_dir, 'TEST' + '_LOS' + '.json'), 'w') as j:
+        json.dump(test_df['ward_los'].tolist(), j)
+
     # Save continuous features to a json
     with open(os.path.join(output_file_dir, 'TRAIN' + '_CONT_FEATURES' + '.json'), 'w') as j:
         json.dump(train_df[config_dict['pathway_los_continuous_features']].values.tolist(), j)
@@ -167,6 +171,9 @@ def create_input_files(input_file_path, output_file_dir, max_pathway_len, min_wa
     with open(os.path.join(output_file_dir, 'TEST' + '_CAT_FEATURES' + '.json'), 'w') as j:
         json.dump(test_df[config_dict['pathway_los_categorical_features']].values.tolist(), j)
 
+    # Save embedding dims to json
+    with open(os.path.join(output_file_dir, 'EMB_DIMS' + '.json'), 'w') as j:
+        json.dump(emb_dims, j)
 
 if __name__ == "__main__":
 
