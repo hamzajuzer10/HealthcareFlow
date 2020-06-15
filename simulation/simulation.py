@@ -6,8 +6,9 @@ from functools import wraps
 import pandas as pd
 from simpy import Environment, Resource
 from timebetween import is_time_between
+import sim_configuration_dataset
 from simulation_dataset import hospital_initialisation_dataset, presim_test_dataset
-from simulation import sim_configuration_dataset
+
 
 # global variable for event log
 global_event_log = pd.DataFrame(columns=['patient_id', 'patient_group', 'init_patient', 'source', 'destination', 'time_stamp', 'event_type'])
