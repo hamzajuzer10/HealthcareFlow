@@ -1,6 +1,7 @@
 import torch
 import torch.nn.functional as F
 import numpy as np
+import pandas as pd
 import json
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
@@ -39,8 +40,9 @@ def pathway_vector_beam_search(encoder, decoder, ward_map, beam_size=3):
 
     i_seqs = []
     i_alphas = []
+    pred_df = pd.DataFrame()
 
-    for i, (cn_features, ct_features, _, _, _) in enumerate(test_loader):
+    for i, (cn_features, ct_features, pathway, _, _) in enumerate(test_loader):
 
         # Move to GPU, if available
         cn_features = cn_features.to(device)
@@ -143,10 +145,18 @@ def pathway_vector_beam_search(encoder, decoder, ward_map, beam_size=3):
         seq = complete_seqs[i]
         alphas = complete_seqs_alpha[i]
 
+        # save predictions in a dictionary
+        pred_dict = {'continuous_features': cn_features.cpu().detach().squeeze().unsqueeze(0).numpy().tolist(), 'categorical_features':ct_features.cpu().detach().squeeze().unsqueeze(0).numpy().tolist(), 'pathway': pathway.cpu().detach().squeeze().unsqueeze(0).numpy().tolist(),
+                     'predicted_pathway': [seq]}
+
+        data_df = pd.DataFrame(pred_dict, columns=['continuous_features', 'categorical_features', 'pathway', 'predicted_pathway'])
+
+        # concat with results_df
+        pred_df = pd.concat([pred_df, data_df], axis=0)
         i_seqs.append(seq)
         i_alphas.append(alphas)
 
-    return i_seqs, i_alphas
+    return i_seqs, i_alphas, pred_df
 
 
 # def visualize_att(image_path, seq, alphas, rev_word_map, smooth=True):
@@ -204,8 +214,8 @@ if __name__ == '__main__':
     rev_ward_map = {v: k for k, v in ward_map.items()}  # ix2word
 
     # Encode, decode with attention and beam search
-    seq, alphas = pathway_vector_beam_search(encoder, decoder, ward_map, beam_size)
-    # alphas = torch.FloatTensor(alphas)
+    seq, alphas, pred_df = pathway_vector_beam_search(encoder, decoder, ward_map, beam_size)
+    alphas = torch.FloatTensor(alphas)
 
     # Visualize caption and attention of best sequence
     # visualize_att(args.img, seq, alphas, rev_word_map, args.smooth)
