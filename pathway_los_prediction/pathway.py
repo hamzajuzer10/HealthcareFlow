@@ -10,7 +10,7 @@ import argparse
 from pathway_los_prediction import models, datasets, utils, model_configuration
 
 
-model_path = 'checkpoint_.pth.tar'
+model_path = '..\\pathway_los_prediction_models\\cap_6_pathways_20_min_ward_freq_best_checkpoint.pth.tar'
 ward_map_path = '..\\sample_datasets\\ward_map.json'
 data_folder = '..\\sample_datasets'  # folder with data files saved by create_input_dataset.py
 batch_size = 1 # process 1 batch at a time
@@ -99,24 +99,24 @@ def pathway_vector_beam_search(encoder, decoder, ward_map, beam_size=3):
 
             # For the first step, all k points will have the same scores (since same k previous words, h, c)
             if step == 1:
-                top_k_scores, top_k_words = scores[0].topk(k, 0, True, True)  # (s)
+                top_k_scores, top_k_wards = scores[0].topk(k, 0, True, True)  # (s)
             else:
                 # Unroll and find top scores, and their unrolled indices
-                top_k_scores, top_k_words = scores.view(-1).topk(k, 0, True, True)  # (s)
+                top_k_scores, top_k_wards = scores.view(-1).topk(k, 0, True, True)  # (s)
 
             # Convert unrolled indices to actual indices of scores
-            prev_word_inds = top_k_words / vocab_size  # (s)
-            next_word_inds = top_k_words % vocab_size  # (s)
+            prev_ward_inds = top_k_wards / vocab_size  # (s)
+            next_ward_inds = top_k_wards % vocab_size  # (s)
 
             # Add new words to sequences, alphas
-            seqs = torch.cat([seqs[prev_word_inds], next_word_inds.unsqueeze(1)], dim=1)  # (s, step+1)
-            seqs_alpha = torch.cat([seqs_alpha[prev_word_inds], alpha[prev_word_inds].unsqueeze(1)],
+            seqs = torch.cat([seqs[prev_ward_inds], next_ward_inds.unsqueeze(1)], dim=1)  # (s, step+1)
+            seqs_alpha = torch.cat([seqs_alpha[prev_ward_inds], alpha[prev_ward_inds].unsqueeze(1)],
                                    dim=1)  # (s, step+1, enc_dim)
 
             # Which sequences are incomplete (didn't reach <end>)?
-            incomplete_inds = [ind for ind, next_word in enumerate(next_word_inds) if
+            incomplete_inds = [ind for ind, next_word in enumerate(next_ward_inds) if
                                next_word != ward_map['<end>']]
-            complete_inds = list(set(range(len(next_word_inds))) - set(incomplete_inds))
+            complete_inds = list(set(range(len(next_ward_inds))) - set(incomplete_inds))
 
             # Set aside complete sequences
             if len(complete_inds) > 0:
@@ -130,11 +130,11 @@ def pathway_vector_beam_search(encoder, decoder, ward_map, beam_size=3):
                 break
             seqs = seqs[incomplete_inds]
             seqs_alpha = seqs_alpha[incomplete_inds]
-            h = h[prev_word_inds[incomplete_inds]]
-            c = c[prev_word_inds[incomplete_inds]]
-            encoder_out = encoder_out[prev_word_inds[incomplete_inds]]
+            h = h[prev_ward_inds[incomplete_inds]]
+            c = c[prev_ward_inds[incomplete_inds]]
+            encoder_out = encoder_out[prev_ward_inds[incomplete_inds]]
             top_k_scores = top_k_scores[incomplete_inds].unsqueeze(1)
-            k_prev_words = next_word_inds[incomplete_inds].unsqueeze(1)
+            k_prev_words = next_ward_inds[incomplete_inds].unsqueeze(1)
 
             # Break if things have been going on too long
             if step > 10:

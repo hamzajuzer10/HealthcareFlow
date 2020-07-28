@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+import os
 
 
 def init_embedding(embeddings):
@@ -61,13 +62,13 @@ def clip_gradient(optimizer, grad_clip):
                 param.grad.data.clamp_(-grad_clip, grad_clip)
 
 
-def save_checkpoint(model_name, epoch, epochs_since_improvement, encoder, decoder, encoder_optimizer, decoder_optimizer,
+def save_checkpoint(model_folder, model_name, epoch, epochs_since_improvement, encoder, decoder, encoder_optimizer, decoder_optimizer,
                     score, is_best):
     """
     Saves model checkpoint.
     :param model_name: model name
     :param epoch: epoch number
-    :param epochs_since_improvement: number of epochs since last improvement in BLEU-4 score
+    :param epochs_since_improvement: number of epochs since last improvement in score
     :param encoder: encoder model
     :param decoder: decoder model
     :param encoder_optimizer: optimizer to update encoder's weights, if fine-tuning
@@ -77,16 +78,15 @@ def save_checkpoint(model_name, epoch, epochs_since_improvement, encoder, decode
     """
     state = {'epoch': epoch,
              'epochs_since_improvement': epochs_since_improvement,
-             'score-4': score,
+             'score': score,
              'encoder': encoder,
              'decoder': decoder,
              'encoder_optimizer': encoder_optimizer,
              'decoder_optimizer': decoder_optimizer}
-    filename = 'checkpoint_' + '.pth.tar'
-    torch.save(state, model_name + "_" + filename)
+    torch.save(state, os.path.join(model_folder, model_name + "_" + 'checkpoint_' + str(epoch) + "_" + '.pth.tar'))
     # If this checkpoint is the best so far, store a copy so it doesn't get overwritten by a worse checkpoint
     if is_best:
-        torch.save(state, model_name + "_" + 'BEST_' + filename)
+        torch.save(state, os.path.join(model_folder, model_name + "_" + 'best_checkpoint.pth.tar'))
 
 
 class AverageMeter(object):
@@ -108,6 +108,10 @@ class AverageMeter(object):
         self.sum += val * n
         self.count += n
         self.avg = self.sum / self.count
+
+
+def count_parameters(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 
 def adjust_learning_rate(optimizer, shrink_factor):
@@ -139,3 +143,24 @@ def accuracy(scores, targets, k):
     correct = ind.eq(targets.view(-1, 1).expand_as(ind))
     correct_total = correct.view(-1).float().sum()  # 0D tensor
     return correct_total.item() * (100.0 / batch_size)
+
+def los_accuracy(scores, targets):
+    """
+    Computes accuracy, from los scores and targets
+
+    :param scores: scores from the model
+    :param targets: true los
+    """
+
+    # Evaluate the model MSE, RMSE, MAE and MAPE
+    scores_np = scores.cpu().detach().numpy()
+    targets_np =targets.cpu().detach().numpy()
+
+    mse = ((scores_np-targets_np)**2).mean()
+    rmse = np.sqrt(mse)
+    mae = np.mean(np.absolute(scores_np-targets_np))
+    mape_target = targets_np[np.nonzero(targets_np != 0)]
+    mape_scores = scores_np[np.nonzero(targets_np != 0)]
+    mape = np.mean(np.abs(mape_target - mape_scores) / mape_target)
+
+    return mse, rmse, mae, mape

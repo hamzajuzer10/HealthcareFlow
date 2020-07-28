@@ -105,19 +105,19 @@ def generate_test_data(filename, num_patients=100, num_steps=5000):
                               'A_and_E', 'Elective', 'Ward_1', 'Ward_2', 'Ward_3', 'Ward_4', 'Ward_5', 'Ward_6', 'Sink_Ward',
                               'A_and_E', 'Elective', 'Ward_1', 'Ward_2', 'Ward_3', 'Ward_4', 'Ward_5', 'Ward_6', 'Sink_Ward',
                               'A_and_E', 'Elective', 'Ward_1', 'Ward_2', 'Ward_3', 'Ward_4', 'Ward_5', 'Ward_6', 'Sink_Ward'],
-                'los_probability': [los_distribution.LoSDistribution(120, 120, 0, 20000), los_distribution.LoSDistribution(45, 30, 0, 20000), los_distribution.LoSDistribution(1300, 1000, 0, 20000),
-                                    los_distribution.LoSDistribution(5000, 1500, 0, 20000), los_distribution.LoSDistribution(3500, 850, 0, 20000), los_distribution.LoSDistribution(1250, 250, 0, 20000),
-                                    los_distribution.LoSDistribution(10000, 2500, 0, 20000), los_distribution.LoSDistribution(8000, 2000, 0, 20000), los_distribution.LoSDistribution(1500, 150, 0, 20000),
-                                    los_distribution.LoSDistribution(120, 120, 0, 20000), los_distribution.LoSDistribution(45, 30, 0, 20000),
-                                    los_distribution.LoSDistribution(6000, 3000, 0, 20000), los_distribution.LoSDistribution(3500, 300, 0, 20000), los_distribution.LoSDistribution(4500, 1000, 0, 20000),
-                                    los_distribution.LoSDistribution(12000, 2000, 0, 20000), los_distribution.LoSDistribution(5600, 450, 0, 20000), los_distribution.LoSDistribution(8000, 300, 0, 20000),
-                                    los_distribution.LoSDistribution(7500, 1300, 0, 20000), los_distribution.LoSDistribution(120, 120, 0, 20000),
-                                    los_distribution.LoSDistribution(45, 30, 0, 20000), los_distribution.LoSDistribution(8000, 3000, 0, 20000), los_distribution.LoSDistribution(5600, 1200, 0, 20000),
-                                    los_distribution.LoSDistribution(1200, 560, 0, 20000), los_distribution.LoSDistribution(500, 150, 0, 20000), los_distribution.LoSDistribution(5600, 1000, 0, 20000),
-                                    los_distribution.LoSDistribution(9500, 1000, 0, 20000), los_distribution.LoSDistribution(3600, 1200, 0, 20000),
-                                    los_distribution.LoSDistribution(120, 120, 0, 20000), los_distribution.LoSDistribution(45, 30, 0, 20000), los_distribution.LoSDistribution(3500, 300, 0, 20000),
-                                    los_distribution.LoSDistribution(4500, 3000, 0, 20000), los_distribution.LoSDistribution(1200, 300, 0, 20000), los_distribution.LoSDistribution(15000, 10000, 0, 20000),
-                                    los_distribution.LoSDistribution(4500, 1500, 0, 20000), los_distribution.LoSDistribution(8900, 900, 0, 20000), los_distribution.LoSDistribution(300, 120, 0, 20000)]}
+                'los_probability': [los_distribution.LoSDistribution(120, 12, 0, 20000), los_distribution.LoSDistribution(45, 4.5, 0, 20000), los_distribution.LoSDistribution(1300, 130, 0, 20000),
+                                    los_distribution.LoSDistribution(5000, 500, 0, 20000), los_distribution.LoSDistribution(3500, 350, 0, 20000), los_distribution.LoSDistribution(1250, 125, 0, 20000),
+                                    los_distribution.LoSDistribution(10000, 1000, 0, 20000), los_distribution.LoSDistribution(8000, 800, 0, 20000), los_distribution.LoSDistribution(1500, 150, 0, 20000),
+                                    los_distribution.LoSDistribution(120, 12, 0, 20000), los_distribution.LoSDistribution(45, 4.5, 0, 20000),
+                                    los_distribution.LoSDistribution(6000, 600, 0, 20000), los_distribution.LoSDistribution(3500, 350, 0, 20000), los_distribution.LoSDistribution(4500, 450, 0, 20000),
+                                    los_distribution.LoSDistribution(12000, 1200, 0, 20000), los_distribution.LoSDistribution(5600, 560, 0, 20000), los_distribution.LoSDistribution(8000, 800, 0, 20000),
+                                    los_distribution.LoSDistribution(7500, 750, 0, 20000), los_distribution.LoSDistribution(120, 12, 0, 20000),
+                                    los_distribution.LoSDistribution(45, 4.5, 0, 20000), los_distribution.LoSDistribution(8000, 800, 0, 20000), los_distribution.LoSDistribution(5600, 560, 0, 20000),
+                                    los_distribution.LoSDistribution(1200, 120, 0, 20000), los_distribution.LoSDistribution(500, 50, 0, 20000), los_distribution.LoSDistribution(5600, 560, 0, 20000),
+                                    los_distribution.LoSDistribution(9500, 950, 0, 20000), los_distribution.LoSDistribution(3600, 360, 0, 20000),
+                                    los_distribution.LoSDistribution(120, 12, 0, 20000), los_distribution.LoSDistribution(45, 4.5, 0, 20000), los_distribution.LoSDistribution(3500, 350, 0, 20000),
+                                    los_distribution.LoSDistribution(4500, 450, 0, 20000), los_distribution.LoSDistribution(1200, 120, 0, 20000), los_distribution.LoSDistribution(15000, 1500, 0, 20000),
+                                    los_distribution.LoSDistribution(4500, 450, 0, 20000), los_distribution.LoSDistribution(8900, 890, 0, 20000), los_distribution.LoSDistribution(300, 30, 0, 20000)]}
 
     los_df = pd.DataFrame(los_data, columns=['patient_group', 'ward_name', 'los_probability'])
 
