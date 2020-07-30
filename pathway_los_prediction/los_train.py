@@ -86,8 +86,8 @@ def main():
     encoder = encoder.to(device)
 
     # Loss function
-    # criterion = nn.MSELoss().to(device)
-    criterion = MSLELoss().to(device)
+    criterion = nn.MSELoss().to(device)
+    # criterion = MSLELoss().to(device)
 
     # Custom dataloaders
     train_loader = torch.utils.data.DataLoader(

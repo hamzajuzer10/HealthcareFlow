@@ -1,5 +1,5 @@
 def generate_pathway_los_config():
-    config_dict = {'pathway_los_continuous_features': ['patient_age'],
+    config_dict = {'pathway_los_continuous_features': [], # patient_age
                    'pathway_los_categorical_features': ['patient_condition', 'patient_point_of_entry'],
                    'pathway_los_target': ['patient_pathway', 'ward_los'],
                    'max_embedding_dim': 50

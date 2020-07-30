@@ -131,7 +131,7 @@ def save_test_data(df, path):
 
 if __name__ == "__main__":
 
-    generate_test_data(filename='..\\sample_datasets\\sample_patient_pathway_los_data', num_patients=50000)
+    generate_test_data(filename='..\\sample_datasets\\sample_patient_pathway_los_data', num_patients=100000)
 
 
 
